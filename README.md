@@ -14,6 +14,17 @@ Pilots practise landings in a flight simulator before flying a real plane full o
 
 The comparison that makes it click: the thing this competes with isn't a consulting bill — it's the cost of the big decision that turned out wrong.
 
+## The business, concretely
+
+The buyer is any subscription or D2C business facing an irreversible pricing/policy call. The engagement:
+
+1. **Data in:** the company's reviews, order history, churn records, support tickets — everything already sits in their stack. A data-readiness score gates the engagement (decline what the data can't support; credibility is the asset).
+2. **Population out:** thousands of simulated customers fitted to that evidence, segment by segment — every synthetic customer traceable to real data, not invented personas.
+3. **The rehearsal:** the decision runs hundreds of times. The deliverable is a *distribution* (median, confidence band, probability revenue falls), the segment that breaks, the riskiest assumption named — and the cheapest real-world pilot that would falsify it before full rollout.
+4. **Priced per decision**, in days, at a fraction of a consulting engagement — then a subscription for teams that rehearse routinely (every quarterly pricing review, every plan change).
+
+**The moat is the track record:** published backtests against past decisions whose real outcomes are known, accumulated per vertical, including the misses. A copycat can clone the architecture in a weekend; they cannot clone two years of published prediction accuracy. First vertical: D2C subscription pricing, where the input data is richest and decisions recur quarterly.
+
 <details>
 <summary><b>Jargon decoder</b> (click to expand)</summary>
 
