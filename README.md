@@ -2,6 +2,34 @@
 
 **A flight simulator for management decisions.**
 
+### ▶ Try the live demo (no installation): https://bahniman.github.io/windtunnel.html
+
+---
+
+## In plain English (no jargon)
+
+Pilots practise landings in a flight simulator before flying a real plane full of people. But when a company raises prices for millions of customers, it usually just picks a number in a meeting and hopes for the best.
+
+**Windtunnel is a simulator for that decision.** It builds a crowd of realistic *simulated customers* from a company's real customer reviews, then tries the price change on them thousands of times to predict what would happen — how much revenue moves, how many customers leave, and *which type* of customer leaves. It answers with an honest range ("most likely +5% to +9%"), not a fake-precise single number, and it recommends the cheapest small real-world test to run before committing.
+
+The comparison that makes it click: the thing this competes with isn't a consulting bill — it's the cost of the big decision that turned out wrong.
+
+<details>
+<summary><b>Jargon decoder</b> (click to expand)</summary>
+
+| Term | What it actually means |
+|---|---|
+| **Simulated / synthetic customer** | A made-up but realistic customer, built from patterns in real review data — not a real person. |
+| **Segment** | A group of similar customers (e.g. "price-sensitive" vs "quality-focused") who react differently. |
+| **Churn** | Customers who quit because of the change. |
+| **Monte Carlo simulation** | Running the same scenario many times with a little randomness, to get a *range* of likely outcomes. |
+| **Confidence band** | "Most likely between X and Y." Honest about uncertainty instead of pretending to know one exact number. |
+| **Backtest** | Checking the tool's predictions against decisions whose real outcomes are already known — the proof it works. |
+
+</details>
+
+---
+
 Pilots rehearse landings. Surgeons rehearse operations. A CEO changes pricing for two million customers on a slide deck and a gut call. The biggest decisions companies make — pricing, policy changes, product removals — ship untested, because there is nowhere to test them:
 
 - A/B tests only work after launch, on small reversible things, with real customers as the crash-test dummies.
