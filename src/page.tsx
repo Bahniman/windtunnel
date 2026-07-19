@@ -87,11 +87,11 @@ export default function LandingPage() {
           </section>
 
           {/* Detailed Problem Statement (Error Container style for urgency) */}
-          <section className="rounded-[16px] bg-[#F9DEDC] dark:bg-[#8C1D18] p-6 space-y-4">
-            <h3 className="text-title-lg font-medium text-[#410E0B] dark:text-[#F9DEDC] inline-flex items-center gap-2">
+          <section className="rounded-lg bg-error-container p-6 space-y-4">
+            <h3 className="text-title-lg font-medium text-on-error-container inline-flex items-center gap-2">
               <ShieldAlert className="h-5 w-5" /> The Cost of Blind Rollouts
             </h3>
-            <p className="text-body-lg text-[#410E0B] dark:text-[#F9DEDC] leading-relaxed">
+            <p className="text-body-lg text-on-error-container leading-relaxed">
               Pricing updates are difficult to roll back once customer cohorts react. Traditional market research takes months and costs millions without providing structured, falsifiable predictions. A/B testing is dynamic but exposes real users to unstable packages.
               <br /><br />
               Windtunnel acts as a pre-launch simulation chamber. By modeling pricing sensitivities and satisfaction factors into synthetic cohorts, companies identify where retention breaks and receive structured recommendations before deploying code.

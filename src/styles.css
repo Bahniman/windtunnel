@@ -7,33 +7,58 @@
 @theme inline {
   --font-sans: "Plus Jakarta Sans", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   
-  /* Map Tailwind classes to legacy vars (which are mapped to M3) */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 28px;
+  
+  /* M3 Tonal Palette Colors */
+  --color-primary: var(--md-sys-color-primary);
+  --color-on-primary: var(--md-sys-color-on-primary);
+  --color-primary-container: var(--md-sys-color-primary-container);
+  --color-on-primary-container: var(--md-sys-color-on-primary-container);
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-on-secondary: var(--md-sys-color-on-secondary);
+  --color-secondary-container: var(--md-sys-color-secondary-container);
+  --color-on-secondary-container: var(--md-sys-color-on-secondary-container);
+  --color-tertiary: var(--md-sys-color-tertiary);
+  --color-on-tertiary: var(--md-sys-color-on-tertiary);
+  --color-tertiary-container: var(--md-sys-color-tertiary-container);
+  --color-on-tertiary-container: var(--md-sys-color-on-tertiary-container);
+  --color-error: var(--md-sys-color-error);
+  --color-on-error: var(--md-sys-color-on-error);
+  --color-error-container: var(--md-sys-color-error-container);
+  --color-on-error-container: var(--md-sys-color-on-error-container);
+  --color-outline: var(--md-sys-color-outline);
+  --color-outline-variant: var(--md-sys-color-outline-variant);
+  
+  --color-surface: var(--md-sys-color-surface);
+  --color-on-surface: var(--md-sys-color-on-surface);
+  --color-surface-variant: var(--md-sys-color-surface-variant);
+  --color-on-surface-variant: var(--md-sys-color-on-surface-variant);
+  
+  --color-surface-container-lowest: var(--md-sys-color-surface-container-lowest);
+  --color-surface-container-low: var(--md-sys-color-surface-container-low);
+  --color-surface-container: var(--md-sys-color-surface-container);
+  --color-surface-container-high: var(--md-sys-color-surface-container-high);
+  --color-surface-container-highest: var(--md-sys-color-surface-container-highest);
 
-  /* Map M3 Typography to Tailwind text sizes */
+  /* Legacy Mappings to prevent breakages */
+  --color-background: var(--md-sys-color-surface);
+  --color-foreground: var(--md-sys-color-on-surface);
+  --color-card: var(--md-sys-color-surface-container);
+  --color-card-foreground: var(--md-sys-color-on-surface);
+  --color-border: var(--md-sys-color-outline-variant);
+  --color-input: var(--md-sys-color-outline);
+  --color-ring: var(--md-sys-color-primary);
+  --color-muted: var(--md-sys-color-surface-variant);
+  --color-muted-foreground: var(--md-sys-color-on-surface-variant);
+  --color-accent: var(--md-sys-color-tertiary);
+  --color-accent-foreground: var(--md-sys-color-on-tertiary);
+
+  /* Map M3 Typography */
   --text-display-lg: 57px;
   --text-display-md: 45px;
   --text-headline-lg: 32px;
@@ -46,48 +71,39 @@
 
 :root {
   /* Windtunnel Custom M3 Orange Light */
-  --md-sys-color-primary: #be4a1d; 
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-secondary: #77574d;
-  --md-sys-color-on-secondary: #ffffff;
-  --md-sys-color-tertiary: #6c5d2f;
-  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-primary: #a44015;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #ffdbd0;
+  --md-sys-color-on-primary-container: #390c00;
   
-  --md-sys-color-surface: #fff8f6;
-  --md-sys-color-on-surface: #231917;
-  --md-sys-color-surface-variant: #f0e6e4;
+  --md-sys-color-secondary: #77574e;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #ffdbd0;
+  --md-sys-color-on-secondary-container: #2c1610;
+  
+  --md-sys-color-tertiary: #6b5d2f;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #f5e2a7;
+  --md-sys-color-on-tertiary-container: #231a00;
+  
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+  
+  --md-sys-color-surface: #fff8f6; 
+  --md-sys-color-on-surface: #231a17;
+  --md-sys-color-surface-variant: #f5ded8;
   --md-sys-color-on-surface-variant: #53433f;
   
   --md-sys-color-surface-container-lowest: #ffffff;
-  --md-sys-color-surface-container-low: #fcf2ef;
-  --md-sys-color-surface-container: #f6ece9;
-  --md-sys-color-surface-container-high: #f0e6e4;
-  --md-sys-color-surface-container-highest: #eae0de;
+  --md-sys-color-surface-container-low: #fdf1ed;
+  --md-sys-color-surface-container: #f7ebe6;
+  --md-sys-color-surface-container-high: #f2e5e1;
+  --md-sys-color-surface-container-highest: #ecdfdb;
   
   --md-sys-color-outline: #85736e;
   --md-sys-color-outline-variant: #d8c2bc;
-  
-  /* Legacy Mappings to M3 */
-  --radius: 0.75rem;
-  --background: var(--md-sys-color-surface);
-  --foreground: var(--md-sys-color-on-surface);
-  --card: var(--md-sys-color-surface-container);
-  --card-foreground: var(--md-sys-color-on-surface);
-  --popover: var(--md-sys-color-surface-container-high);
-  --popover-foreground: var(--md-sys-color-on-surface);
-  --primary: var(--md-sys-color-primary);
-  --primary-foreground: var(--md-sys-color-on-primary);
-  --secondary: var(--md-sys-color-secondary);
-  --secondary-foreground: var(--md-sys-color-on-secondary);
-  --muted: var(--md-sys-color-surface-variant);
-  --muted-foreground: var(--md-sys-color-on-surface-variant);
-  --accent: var(--md-sys-color-tertiary);
-  --accent-foreground: var(--md-sys-color-on-tertiary);
-  --destructive: #ba1a1a;
-  --destructive-foreground: #ffffff;
-  --border: var(--md-sys-color-outline-variant);
-  --input: var(--md-sys-color-outline);
-  --ring: var(--md-sys-color-primary);
 
   --scene-bg: var(--md-sys-color-surface);
   --scene-bg-gradient: var(--md-sys-color-surface);
@@ -95,47 +111,39 @@
 
 .dark {
   /* Windtunnel Custom M3 Orange Dark */
-  --md-sys-color-primary: #fb923c;
-  --md-sys-color-on-primary: #5c1800;
-  --md-sys-color-secondary: #e7bdb1;
-  --md-sys-color-on-secondary: #442a21;
-  --md-sys-color-tertiary: #d8c58d;
-  --md-sys-color-on-tertiary: #3b2f05;
+  --md-sys-color-primary: #ffb599;
+  --md-sys-color-on-primary: #5c1900;
+  --md-sys-color-primary-container: #802b00;
+  --md-sys-color-on-primary-container: #ffdbd0;
+  
+  --md-sys-color-secondary: #e7bdb2;
+  --md-sys-color-on-secondary: #442a22;
+  --md-sys-color-secondary-container: #5d4037;
+  --md-sys-color-on-secondary-container: #ffdbd0;
+  
+  --md-sys-color-tertiary: #d8c690;
+  --md-sys-color-on-tertiary: #3a2f06;
+  --md-sys-color-tertiary-container: #52451a;
+  --md-sys-color-on-tertiary-container: #f5e2a7;
+  
+  --md-sys-color-error: #ffb4ab;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000a;
+  --md-sys-color-on-error-container: #ffdad6;
   
   --md-sys-color-surface: #1a110f;
-  --md-sys-color-on-surface: #f1dfda;
+  --md-sys-color-on-surface: #f0dfda;
   --md-sys-color-surface-variant: #53433f;
   --md-sys-color-on-surface-variant: #d8c2bc;
   
-  --md-sys-color-surface-container-lowest: #140c0a;
+  --md-sys-color-surface-container-lowest: #140b09;
   --md-sys-color-surface-container-low: #231917;
-  --md-sys-color-surface-container: #271d1b;
-  --md-sys-color-surface-container-high: #322825;
+  --md-sys-color-surface-container: #271d1a;
+  --md-sys-color-surface-container-high: #322724;
   --md-sys-color-surface-container-highest: #3d322f;
   
   --md-sys-color-outline: #a08c87;
   --md-sys-color-outline-variant: #53433f;
-  
-  /* Legacy Mappings to M3 */
-  --background: var(--md-sys-color-surface);
-  --foreground: var(--md-sys-color-on-surface);
-  --card: var(--md-sys-color-surface-container);
-  --card-foreground: var(--md-sys-color-on-surface);
-  --popover: var(--md-sys-color-surface-container-high);
-  --popover-foreground: var(--md-sys-color-on-surface);
-  --primary: var(--md-sys-color-primary);
-  --primary-foreground: var(--md-sys-color-on-primary);
-  --secondary: var(--md-sys-color-secondary);
-  --secondary-foreground: var(--md-sys-color-on-secondary);
-  --muted: var(--md-sys-color-surface-variant);
-  --muted-foreground: var(--md-sys-color-on-surface-variant);
-  --accent: var(--md-sys-color-tertiary);
-  --accent-foreground: var(--md-sys-color-on-tertiary);
-  --destructive: #ffb4ab;
-  --destructive-foreground: #690005;
-  --border: var(--md-sys-color-outline-variant);
-  --input: var(--md-sys-color-outline);
-  --ring: var(--md-sys-color-primary);
 
   --scene-bg: var(--md-sys-color-surface);
   --scene-bg-gradient: var(--md-sys-color-surface);
@@ -152,7 +160,7 @@
   }
 }
 
-/* Override Glass and Blobs to force M3 Tonal Surfaces */
+/* Force standard M3 surfaces, disable old custom glass/blobs */
 .glass {
   background-color: var(--md-sys-color-surface-container) !important;
   backdrop-filter: none !important;
@@ -170,7 +178,7 @@
   background-color: var(--md-sys-color-surface) !important;
 }
 
-/* Force specific colors in page components */
+/* Override neon tags and shadow texts */
 .text-neon-emerald, .text-neon-accent {
   text-shadow: none !important;
   color: var(--md-sys-color-primary) !important;

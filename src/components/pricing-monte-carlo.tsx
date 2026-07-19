@@ -151,7 +151,7 @@ export function PricingMonteCarlo() {
             setCohortSize(8500);
             setStrategy("flat");
           }}
-          className="btn-press self-start flex h-8 items-center gap-1.5 rounded-lg border border-border bg-foreground/5 px-3 text-xs text-muted-foreground hover:bg-foreground/10 hover:text-foreground"
+          className="self-start flex h-8 items-center gap-1.5 rounded-lg border border-outline-variant bg-surface-container-low px-3 text-xs text-on-surface hover:bg-on-surface/8 hover:text-on-surface transition-colors"
         >
           <RefreshCw className="h-3.5 w-3.5" /> Reset Sandbox
         </button>
@@ -160,13 +160,13 @@ export function PricingMonteCarlo() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Controls */}
         <div className="lg:col-span-4 flex flex-col gap-4">
-          <div className="border border-border rounded-xl p-4 bg-foreground/[0.01] space-y-4">
-            <span className="font-mono text-[9px] uppercase font-bold text-muted-foreground tracking-wider block border-b border-border/40 pb-1.5">Simulation Inputs</span>
+          <div className="border border-outline-variant rounded-lg p-4 bg-surface-container-low space-y-4">
+            <span className="font-mono text-[9px] uppercase font-bold text-on-surface-variant tracking-wider block border-b border-outline-variant/60 pb-1.5">Simulation Inputs</span>
             
             {/* Input 1: Pct */}
             <div className="space-y-1.5">
               <div className="flex justify-between font-mono text-xs">
-                <span className="text-muted-foreground">Target Price Increase:</span>
+                <span className="text-on-surface-variant">Target Price Increase:</span>
                 <span className="text-foreground font-bold">{pct}%</span>
               </div>
               <input 
@@ -175,13 +175,13 @@ export function PricingMonteCarlo() {
                 max="40" 
                 value={pct} 
                 onChange={(e) => setPct(Number(e.target.value))}
-                className="w-full accent-[#FF4D00] h-1 bg-border rounded-lg appearance-none cursor-pointer"
+                className="w-full accent-primary h-1 bg-outline-variant rounded-lg appearance-none cursor-pointer"
               />
             </div>
 
             {/* Input 2: Cohort Size */}
             <div className="space-y-1.5">
-              <label className="font-mono text-xs text-muted-foreground block">Cohort Size (Subscribers):</label>
+              <label className="font-mono text-xs text-on-surface-variant block">Cohort Size (Subscribers):</label>
               <input 
                 type="number"
                 min="1000"
@@ -189,22 +189,22 @@ export function PricingMonteCarlo() {
                 step="500"
                 value={cohortSize} 
                 onChange={(e) => setCohortSize(Number(e.target.value))}
-                className="w-full font-mono text-xs border border-border bg-foreground/[0.02] p-2 rounded-lg text-foreground focus:outline-none focus:border-[#FF4D00]"
+                className="w-full font-mono text-xs border border-outline-variant bg-surface-container p-2 rounded-lg text-foreground focus:outline-none focus:border-primary"
               />
             </div>
 
             {/* Input 3: Strategy Type */}
             <div className="space-y-2">
-              <label className="font-mono text-xs text-muted-foreground block">Migration Strategy:</label>
+              <label className="font-mono text-xs text-on-surface-variant block">Migration Strategy:</label>
               <div className="flex flex-col gap-1.5">
                 {(["flat", "tiered", "smb"] as const).map((s) => (
                   <button
                     key={s}
                     onClick={() => setStrategy(s)}
-                    className={`btn-press w-full p-2.5 rounded-lg border text-left font-mono text-[10px] transition-colors flex items-center justify-between ${
+                    className={`w-full p-2.5 rounded-lg border text-left font-mono text-[10px] transition-colors flex items-center justify-between ${
                       strategy === s
-                        ? "border-[#FF4D00] bg-[#FF4D00]/10 text-foreground font-bold"
-                        : "border-border/60 bg-foreground/[0.01] hover:bg-foreground/5 text-muted-foreground hover:text-foreground"
+                        ? "border-primary bg-primary-container text-on-primary-container font-bold"
+                        : "border-outline-variant bg-surface hover:bg-on-surface/8 text-on-surface-variant hover:text-on-surface"
                     }`}
                   >
                     <span>
@@ -224,48 +224,48 @@ export function PricingMonteCarlo() {
         <div className="lg:col-span-8 flex flex-col gap-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Probability Output Metrics */}
-            <div className="border border-border rounded-xl p-4 bg-foreground/[0.01] font-mono text-xs flex flex-col justify-between">
+            <div className="border border-outline-variant rounded-lg p-4 bg-surface-container-low font-mono text-xs flex flex-col justify-between">
               <div>
-                <span className="font-mono text-[9px] uppercase font-bold text-muted-foreground block border-b border-border/40 pb-1.5 mb-2">Simulated Delta ARR Yield</span>
+                <span className="font-mono text-[9px] uppercase font-bold text-on-surface-variant block border-b border-outline-variant/60 pb-1.5 mb-2">Simulated Delta ARR Yield</span>
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">10th Percentile (Downside):</span>
-                    <span className={`font-bold ${results.p10 >= 0 ? "text-emerald-500" : "text-red-500"}`}>{fmtSgn(results.p10)}</span>
+                    <span className="text-on-surface-variant">10th Percentile (Downside):</span>
+                    <span className={`font-bold ${results.p10 >= 0 ? "text-primary" : "text-error"}`}>{fmtSgn(results.p10)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Median Growth Expectation:</span>
+                    <span className="text-on-surface-variant">Median Growth Expectation:</span>
                     <span className="text-foreground font-bold">{fmtSgn(results.med)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">90th Percentile (Upside):</span>
-                    <span className="text-emerald-500 font-bold">{fmtSgn(results.p90)}</span>
+                    <span className="text-on-surface-variant">90th Percentile (Upside):</span>
+                    <span className="text-primary font-bold">{fmtSgn(results.p90)}</span>
                   </div>
                 </div>
               </div>
-              <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between">
-                <span className="text-[10px] text-muted-foreground">Downside probability:</span>
-                <span className={`font-bold ${results.downProb > 20 ? "text-red-500" : "text-emerald-500"}`}>
+              <div className="mt-4 pt-3 border-t border-outline-variant/60 flex items-center justify-between">
+                <span className="text-[10px] text-on-surface-variant">Downside probability:</span>
+                <span className={`font-bold ${results.downProb > 20 ? "text-error" : "text-primary"}`}>
                   {results.downProb.toFixed(0)}%
                 </span>
               </div>
             </div>
 
             {/* Churn Risk Heatmap */}
-            <div className="border border-border rounded-xl p-4 bg-foreground/[0.01] font-mono text-xs">
-              <span className="font-mono text-[9px] uppercase font-bold text-muted-foreground block border-b border-border/40 pb-1.5 mb-2">Cohort Churn Risk</span>
+            <div className="border border-outline-variant rounded-lg p-4 bg-surface-container-low font-mono text-xs">
+              <span className="font-mono text-[9px] uppercase font-bold text-on-surface-variant block border-b border-outline-variant/60 pb-1.5 mb-2">Cohort Churn Risk</span>
               <div className="space-y-2">
                 {SEGS.map((s) => {
                   const churnVal = results.segChurn[s.id]!;
                   const isHigh = churnVal > 25;
                   const isMed = churnVal >= 10 && churnVal <= 25;
                   const riskLabel = isHigh ? "HIGH RISK" : isMed ? "MED RISK" : "LOW RISK";
-                  const riskColor = isHigh ? "text-red-500 border-red-500/20 bg-red-500/5" : isMed ? "text-amber-500 border-amber-500/20 bg-amber-500/5" : "text-emerald-500 border-emerald-500/20 bg-emerald-500/5";
+                  const riskColor = isHigh ? "text-error border-error/20 bg-error/5" : isMed ? "text-amber-500 border-amber-500/20 bg-amber-500/5" : "text-primary border-primary/20 bg-primary/5";
 
                   return (
-                    <div key={s.id} className="flex items-center justify-between p-1.5 rounded border border-border/40 bg-[#0A0A0B]">
+                    <div key={s.id} className="flex items-center justify-between p-1.5 rounded border border-outline-variant/60 bg-surface-container-high">
                       <span className="text-foreground text-[10px] truncate max-w-[130px]">{s.name}</span>
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] text-muted-foreground">{churnVal.toFixed(1)}% Churn</span>
+                        <span className="text-[10px] text-on-surface-variant">{churnVal.toFixed(1)}% Churn</span>
                         <span className={`text-[8px] font-bold px-1 rounded border ${riskColor}`}>{riskLabel}</span>
                       </div>
                     </div>
@@ -276,8 +276,8 @@ export function PricingMonteCarlo() {
           </div>
 
           {/* Histogram Visualizer */}
-          <div className="border border-border rounded-xl p-4 bg-[#0A0A0B]">
-            <span className="font-mono text-[9px] uppercase font-bold text-muted-foreground block border-b border-border/40 pb-1.5 mb-3">Probability Distribution (ARR Delta %)</span>
+          <div className="border border-outline-variant rounded-lg p-4 bg-surface-container-high">
+            <span className="font-mono text-[9px] uppercase font-bold text-on-surface-variant block border-b border-outline-variant/60 pb-1.5 mb-3">Probability Distribution (ARR Delta %)</span>
             
             {/* SVG histogram */}
             <div className="w-full h-[120px] flex items-end gap-0.5 pt-4">
@@ -285,7 +285,7 @@ export function PricingMonteCarlo() {
                 const heightPct = (count / peak) * 100;
                 // Color mapping: red for negative delta, green for positive delta
                 const valueForBin = minVal + (idx / BINS) * (maxVal - minVal);
-                const barColor = valueForBin < 0 ? "bg-red-500/70" : "bg-[#FF4D00]/70";
+                const barColor = valueForBin < 0 ? "bg-error/70" : "bg-primary/70";
                 
                 return (
                   <div 
@@ -297,7 +297,7 @@ export function PricingMonteCarlo() {
                       className={`w-full rounded-t-sm transition-all duration-300 group-hover:brightness-125 ${barColor}`}
                     />
                     {/* Tooltip */}
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 bg-black border border-border px-2 py-1 rounded text-[9px] font-mono text-foreground opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none whitespace-nowrap mb-1">
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 bg-surface-container border border-outline-variant px-2 py-1 rounded text-[9px] font-mono text-on-surface opacity-0 group-hover:opacity-100 transition-opacity z-50 pointer-events-none whitespace-nowrap mb-1">
                       {fmtSgn(valueForBin)} : {count} runs
                     </div>
                   </div>
@@ -305,7 +305,7 @@ export function PricingMonteCarlo() {
               })}
             </div>
             
-            <div className="flex justify-between font-mono text-[9px] text-muted-foreground/60 border-t border-border/20 pt-2 mt-1">
+            <div className="flex justify-between font-mono text-[9px] text-on-surface-variant/60 border-t border-outline-variant/40 pt-2 mt-1">
               <span>Worst Case ({fmtSgn(minVal)})</span>
               <span className="text-foreground">Median ({fmtSgn(results.med)})</span>
               <span>Best Case ({fmtSgn(maxVal)})</span>
