@@ -115,7 +115,7 @@ export function PricingMonteCarlo() {
     if (isDangerous) {
       return {
         decision: "ABORT / REDESIGN",
-        color: "text-red-500 border-red-500/20 bg-red-500/5",
+        color: "text-error border-error/30 bg-error-container/20",
         icon: Flame,
         text: `The simulation shows an unacceptable risk of ARR contraction (${results.downProb.toFixed(0)}% probability of negative yield). We recommend aborting the current plan. Insulate the highly sensitive SMB/Deal Hunters segment by deploying a Tiered Enterprise Migration instead.`
       };
@@ -123,14 +123,14 @@ export function PricingMonteCarlo() {
     if (isLowYield) {
       return {
         decision: "HOLD / OPTIMIZE",
-        color: "text-amber-500 border-amber-500/20 bg-amber-500/5",
+        color: "text-tertiary border-tertiary/30 bg-tertiary-container/20",
         icon: AlertTriangle,
         text: `The projected median ARR growth is very low (${results.med.toFixed(1)}%). Churn in sensitive cohorts is eroding the gains of the price increase. Consider introducing grandfathered pricing or expansion credits to preserve segment retention.`
       };
     }
     return {
       decision: "PROCEED WITH LAUNCH",
-      color: "text-emerald-500 border-emerald-500/20 bg-emerald-500/5",
+      color: "text-primary border-primary/30 bg-primary-container/20",
       icon: ShieldCheck,
       text: `The current model shows robust ARR yields (median delta is ${results.med.toFixed(1)}%) with negligible downside risk (${results.downProb.toFixed(0)}% probability of revenue leakage). Excellent safety margin. We recommend proceeding with the launch.`
     };
