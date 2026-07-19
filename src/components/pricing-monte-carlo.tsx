@@ -259,7 +259,7 @@ export function PricingMonteCarlo() {
                   const isHigh = churnVal > 25;
                   const isMed = churnVal >= 10 && churnVal <= 25;
                   const riskLabel = isHigh ? "HIGH RISK" : isMed ? "MED RISK" : "LOW RISK";
-                  const riskColor = isHigh ? "text-error border-error/20 bg-error/5" : isMed ? "text-amber-500 border-amber-500/20 bg-amber-500/5" : "text-primary border-primary/20 bg-primary/5";
+                  const riskColor = isHigh ? "text-error border-error/20 bg-error/5" : isMed ? "text-tertiary border-tertiary/20 bg-tertiary/5" : "text-primary border-primary/20 bg-primary/5";
 
                   return (
                     <div key={s.id} className="flex items-center justify-between p-1.5 rounded border border-outline-variant/60 bg-surface-container-high">
