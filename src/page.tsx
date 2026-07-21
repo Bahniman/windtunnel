@@ -53,7 +53,7 @@ export default function LandingPage() {
           
           {/* M3 Hero Section */}
           <section className="space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 rounded-lg border border-primary/25 bg-primary-container/40 px-4 py-2 text-label-lg font-medium text-primary transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:rounded-full">
+            <div className="inline-flex items-center gap-2 rounded-lg border border-primary/25 bg-primary-container/40 px-4 py-2 text-label-lg font-medium text-primary transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)]">
               <Award className="h-4 w-4" /> Startup Lab · Strategic Decision Engine
             </div>
             <h1 className="text-[42px] leading-[48px] md:text-[60px] md:leading-[66px] font-medium tracking-[-1.2px] text-on-surface">
@@ -115,21 +115,21 @@ export default function LandingPage() {
           <section className="space-y-6 pt-8 border-t border-border">
             <h2 className="text-headline-lg font-normal text-on-surface">Core Elements</h2>
             <div className="grid gap-6 sm:grid-cols-3">
-              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:rounded-[28px] hover:bg-surface-container-high">
+              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container-high">
                 <Gauge className="h-8 w-8 text-primary" />
                 <h4 className="text-title-lg font-medium text-on-surface">1. Synthetic Cohorts</h4>
                 <p className="text-body-md text-on-surface-variant leading-relaxed">
                   Extracts characteristics from review sentiment, usage cadence, and order frequencies to build thousands of representative synthetic customer agents.
                 </p>
               </div>
-              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:rounded-[28px] hover:bg-surface-container-high">
+              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container-high">
                 <Sliders className="h-8 w-8 text-primary" />
                 <h4 className="text-title-lg font-medium text-on-surface">2. Monte Carlo Run</h4>
                 <p className="text-body-md text-on-surface-variant leading-relaxed">
                   Executes subscription decisions over hundreds of random iterations, mapping confidence intervals to estimate exactly where revenue risks spike.
                 </p>
               </div>
-              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:rounded-[28px] hover:bg-surface-container-high">
+              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container-high">
                 <TrendingDown className="h-8 w-8 text-primary" />
                 <h4 className="text-title-lg font-medium text-on-surface">3. Falsifiable Pilots</h4>
                 <p className="text-body-md text-on-surface-variant leading-relaxed">
@@ -141,7 +141,7 @@ export default function LandingPage() {
 
           {/* Business Model (Filled Cards) */}
           <section className="grid gap-6 md:grid-cols-2 pt-8 border-t border-border">
-            <div className="rounded-[16px] bg-surface-container-low p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:rounded-[28px] hover:bg-surface-container">
+            <div className="rounded-[16px] bg-surface-container-low p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container">
               <h3 className="text-headline-md font-normal text-on-surface">Strategic Rationale</h3>
               <ul className="space-y-4 text-body-md text-on-surface-variant">
                 <li className="flex items-start gap-3">
@@ -159,7 +159,7 @@ export default function LandingPage() {
               </ul>
             </div>
 
-            <div className="rounded-[16px] bg-surface-container-low p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:rounded-[28px] hover:bg-surface-container">
+            <div className="rounded-[16px] bg-surface-container-low p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container">
               <h3 className="text-headline-md font-normal text-on-surface">Moat & Revenue</h3>
               <p className="text-body-md text-on-surface-variant leading-relaxed">
                 Consulting engagement pricing for per-decision simulation runs, migrating to monthly subscription terms for product groups that run routine pricing sprints. First targeted vertical: D2C subscriptions, where customer sentiment and purchase metrics are already indexed.
