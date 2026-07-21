@@ -1,197 +1,260 @@
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PricingMonteCarlo } from "@/components/pricing-monte-carlo";
 import { JargonDecoder } from "@/components/jargon-decoder";
-import {
-  ShieldAlert,
-  ArrowRight,
-  Gauge,
-  Sliders,
-  TrendingDown,
-  Award,
-  Zap,
-  Github
-} from "lucide-react";
 
 export default function LandingPage() {
   return (
     <div className="relative min-h-screen bg-surface text-on-surface font-sans">
-      
-      {/* M3 Top App Bar */}
+
+      {/* ------------------------------ masthead ------------------------------ */}
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-outline-variant/50 bg-surface/80 backdrop-blur-xl backdrop-saturate-150">
-        <div className="mx-auto max-w-[1440px] px-4 sm:px-8 lg:px-12 xl:px-16">
+        <div className="shell">
           <div className="flex items-center justify-between h-16">
-            <a href="#" className="flex items-center gap-2.5">
-              <span className="text-title-lg font-medium">
-                Windtunnel
-              </span>
+            <a href="https://bahniman.github.io" className="flex items-center gap-2.5">
+              <span className="inline-block h-[7px] w-[7px] bg-primary" />
+              <span className="text-[1.0625rem] font-extrabold tracking-[-0.02em]">Windtunnel</span>
             </a>
-            <nav className="flex items-center gap-2 sm:gap-4">
-              <a
-                href="https://bahniman.github.io"
-                className="text-xs sm:text-sm font-medium hover:text-primary transition-colors whitespace-nowrap"
-              >
-                <span className="hidden sm:inline">← Back to portfolio</span>
-                <span className="sm:hidden">← Portal</span>
-              </a>
-              <a
-                href="https://github.com/Bahniman/windtunnel"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full p-2 text-on-surface-variant hover:bg-surface-container-high transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </a>
+            <nav className="flex items-center gap-5">
+              <a href="https://bahniman.github.io" className="mono hover:text-on-surface transition-colors">&larr; Portfolio</a>
+              <a href="https://github.com/Bahniman/windtunnel" target="_blank" rel="noreferrer" className="mono hover:text-on-surface transition-colors">Source</a>
               <ThemeToggle />
             </nav>
           </div>
         </div>
       </header>
 
-      {/* Main Container */}
-      <main className="mx-auto max-w-[1440px] px-4 pt-28 pb-20 sm:px-8 lg:px-12 xl:px-16">
-        <div className="max-w-[960px] mx-auto space-y-16">
-          
-          {/* M3 Hero Section */}
-          <section className="space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 rounded-lg border border-primary/25 bg-primary-container/40 px-4 py-2 text-label-lg font-medium text-primary transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)]">
-              <Award className="h-4 w-4" /> Startup Lab · Strategic Decision Engine
-            </div>
-            <h1 className="text-[40px] leading-[46px] md:text-[57px] md:leading-[64px] tracking-[-0.25px] font-medium text-on-surface">
-              Rehearse decisions<br />before launch.
-            </h1>
-            <p className="text-title-lg leading-relaxed text-on-surface-variant max-w-[760px]">
-              Companies execute their most critical strategic moves — pricing updates, fee plans, plan structures — based on spreadsheet projections and gut feelings. A/B testing is limited to small post-launch changes. Windtunnel solves this by building synthetic user populations modeled from real support transcripts and review text, simulating decisions thousands of times.
-            </p>
+      <main className="pt-16">
 
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <a
-                href="#demo"
-                className="inline-flex items-center gap-2 rounded-full bg-primary text-on-primary px-6 py-3 text-label-lg font-medium hover:bg-[color-mix(in_srgb,var(--md-sys-color-on-primary)_8%,var(--md-sys-color-primary))] transition-colors"
-              >
-                Try Interactive Demo <ArrowRight className="h-4 w-4" />
+        {/* ------------------------------ opening ----------------------------- */}
+        <section className="shell section hero-grid">
+          <div>
+            <h1 className="display">Rehearse decisions<br />before launch.</h1>
+            <p className="lede" style={{ marginTop: "2rem" }}>
+              You can A/B test a button. You cannot A/B test a pricing structure, because every
+              customer has to be on one model and the ones you experiment on are real. So the
+              biggest commercial decisions get made on a spreadsheet and a hunch. Windtunnel
+              builds synthetic customer cohorts from real support and transaction history and
+              runs the change thousands of times first.
+            </p>
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginTop: "2.5rem" }}>
+              <a href="#demo" className="inline-flex items-center gap-2 rounded bg-primary px-6 py-3 text-label-lg font-medium text-on-primary">
+                Run a simulation
               </a>
-              <a
-                href="https://github.com/Bahniman/windtunnel"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-label-lg font-medium text-primary hover:bg-surface-container-low transition-colors"
-              >
-                <Github className="h-4 w-4" /> View Source Code
+              <a href="#problem" className="inline-flex items-center gap-2 rounded border border-outline px-6 py-3 text-label-lg font-medium">
+                Read the argument
               </a>
             </div>
-          </section>
+          </div>
 
-          {/* Business Context Info Header (M3 Outlined Container) */}
-          <section className="rounded-[16px] border border-outline-variant/60 bg-surface-container-low p-4 flex flex-col justify-between gap-3 sm:flex-row text-body-md text-on-surface-variant">
-            <span>Currently Simulating: <strong className="text-on-surface font-semibold">BrewCircle Pvt Ltd</strong> (₹3.2 Cr ARR · 4,100 active subscribers)</span>
-            <span>Target Population: <strong className="text-on-surface font-semibold">1,240 Reviews + 18 Months transaction logs</strong></span>
-          </section>
+          <dl className="meta">
+            <div><dt>Layer</dt><dd>Simulation</dd></div>
+            <div><dt>Status</dt><dd>Working prototype, MIT licensed</dd></div>
+            <div><dt>Method</dt><dd>Monte Carlo over synthetic cohorts</dd></div>
+            <div><dt>Part of</dt><dd>Four protocols for the agent economy</dd></div>
+          </dl>
+        </section>
 
-          {/* Detailed Problem Statement (Error Container style for urgency) */}
-          <section className="relative overflow-hidden border border-outline-variant bg-surface-container-low p-7 space-y-4">
-            <h3 className="text-title-lg font-medium text-error inline-flex items-center gap-2">
-              <ShieldAlert className="h-5 w-5" /> The Cost of Blind Rollouts
-            </h3>
-            <p className="text-body-lg text-on-surface-variant leading-relaxed">
-              Pricing updates are difficult to roll back once customer cohorts react. Traditional market research takes months and costs millions without providing structured, falsifiable predictions. A/B testing is dynamic but exposes real users to unstable packages.
-              <br /><br />
-              Windtunnel acts as a pre-launch simulation chamber. By modeling pricing sensitivities and satisfaction factors into synthetic cohorts, companies identify where retention breaks and receive structured recommendations before deploying code.
+        {/* ----------------------------- statement ---------------------------- */}
+        <section className="statement">
+          <div className="shell">
+            <p className="line">Unity spent a year, a CEO and most of its goodwill discovering it should have raised prices 8%.</p>
+            <p className="by">
+              The whole episode is a public, dated record of a decision nobody could test before
+              shipping it.
             </p>
-          </section>
+          </div>
+        </section>
 
-          {/* Interactive Demos Grid */}
-          <section id="demo" className="scroll-mt-24 space-y-8 pt-8 border-t border-border">
-            <div className="space-y-2">
-              <h2 className="text-headline-lg font-normal text-on-surface">Interactive Simulator Deck</h2>
-              <p className="text-body-lg text-on-surface-variant">Adjust pricing hikes to test the subscription base stability across segments.</p>
-            </div>
+        {/* ------------------------------ problem ----------------------------- */}
+        <section className="shell section band" id="problem">
+          <div className="section-head">
+            <span className="idx">Case</span>
+            <h2 className="h2">The most expensive kind of untested change</h2>
+            <p className="note">Not a hypothetical. A timeline anyone can check.</p>
+          </div>
 
-            <div className="w-full">
-              <PricingMonteCarlo />
-            </div>
-          </section>
+          <div className="table-wrap">
+            <table className="table">
+              <thead>
+                <tr><th>Unity Runtime Fee</th><th className="n">When</th><th className="n">Consequence</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Per-install Runtime Fee announced<span className="sub">Developers would pay each time a game was installed past a threshold</span></td>
+                  <td className="n">Sep 2023</td>
+                  <td className="n">Immediate revolt</td>
+                </tr>
+                <tr>
+                  <td>Terms walked back after backlash<span className="sub">Studios publicly threatened to leave the engine</span></td>
+                  <td className="n">Sep 2023</td>
+                  <td className="n">Trust gone</td>
+                </tr>
+                <tr>
+                  <td>CEO John Riccitiello departs<span className="sub">Unity Create head Marc Whitten also resigned</span></td>
+                  <td className="n">Oct 2023</td>
+                  <td className="n">Leadership</td>
+                </tr>
+                <tr>
+                  <td>Runtime Fee cancelled outright by the new CEO</td>
+                  <td className="n">Sep 2024</td>
+                  <td className="n">Reversed</td>
+                </tr>
+                <tr>
+                  <td><strong>What they did instead: raise subscription prices</strong><span className="sub">Unity Pro +8%, Unity Enterprise +25%</span></td>
+                  <td className="n">Sep 2024</td>
+                  <td className="n"><strong>+8% / +25%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          {/* Architecture Details (Filled Cards) */}
-          <section className="space-y-6 pt-8 border-t border-border">
-            <h2 className="text-headline-lg font-normal text-on-surface">Core Elements</h2>
-            <div className="grid gap-6 sm:grid-cols-3">
-              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container-high">
-                <Gauge className="h-8 w-8 text-primary" />
-                <h4 className="text-title-lg font-medium text-on-surface">1. Synthetic Cohorts</h4>
-                <p className="text-body-md text-on-surface-variant leading-relaxed">
-                  Extracts characteristics from review sentiment, usage cadence, and order frequencies to build thousands of representative synthetic customer agents.
-                </p>
-              </div>
-              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container-high">
-                <Sliders className="h-8 w-8 text-primary" />
-                <h4 className="text-title-lg font-medium text-on-surface">2. Monte Carlo Run</h4>
-                <p className="text-body-md text-on-surface-variant leading-relaxed">
-                  Executes subscription decisions over hundreds of random iterations, mapping confidence intervals to estimate exactly where revenue risks spike.
-                </p>
-              </div>
-              <div className="rounded-[16px] bg-surface-container p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container-high">
-                <TrendingDown className="h-8 w-8 text-primary" />
-                <h4 className="text-title-lg font-medium text-on-surface">3. Falsifiable Pilots</h4>
-                <p className="text-body-md text-on-surface-variant leading-relaxed">
-                  Translates mathematical models into actionable, cost-effective pilot specifications. Recommends the cheapest test format to prove predictions.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Business Model (Filled Cards) */}
-          <section className="grid gap-6 md:grid-cols-2 pt-8 border-t border-border">
-            <div className="rounded-[16px] bg-surface-container-low p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container">
-              <h3 className="text-headline-md font-normal text-on-surface">Strategic Rationale</h3>
-              <ul className="space-y-4 text-body-md text-on-surface-variant">
-                <li className="flex items-start gap-3">
-                  <Zap className="h-5 w-5 shrink-0 text-primary" />
-                  <span><strong>Decision Protection:</strong> Reduces the risk of launching bad price changes that destroy ARR.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Zap className="h-5 w-5 shrink-0 text-primary" />
-                  <span><strong>Falsifiable Advice:</strong> Provides clear, numbers-based predictions that can be verified during pilots.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Zap className="h-5 w-5 shrink-0 text-primary" />
-                  <span><strong>Accuracy Moat:</strong> Prediction accuracy compiles and improves over years of historical simulation runs.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-[16px] bg-surface-container-low p-6 space-y-4 transition-all duration-500 ease-[cubic-bezier(0.34,1.42,0.64,1)] hover:-translate-y-1 hover:bg-surface-container">
-              <h3 className="text-headline-md font-normal text-on-surface">Moat & Revenue</h3>
-              <p className="text-body-md text-on-surface-variant leading-relaxed">
-                Consulting engagement pricing for per-decision simulation runs, migrating to monthly subscription terms for product groups that run routine pricing sprints. First targeted vertical: D2C subscriptions, where customer sentiment and purchase metrics are already indexed.
-              </p>
-            </div>
-          </section>
-
-          {/* Jargon and Sources */}
-          <section className="space-y-6 pt-8 border-t border-border">
-            <JargonDecoder />
-
-            <div className="rounded-[16px] border border-outline-variant/60 bg-surface-container-low p-6 text-body-md text-on-surface-variant space-y-4">
-              <h4 className="font-medium text-on-surface">Source Material & Model References:</h4>
-              <ol className="list-decimal pl-5 space-y-2 leading-relaxed">
-                <li>BrewCircle Pvt Ltd subscription data logs (sample dataset Q2 2026).</li>
-                <li>Monte Carlo methods in price optimization and elastic churn modeling.</li>
-                <li>Windtunnel open-source engine specification – <a href="https://github.com/Bahniman/windtunnel" target="_blank" rel="noreferrer" className="text-primary hover:underline">Windtunnel GitHub Repository</a>.</li>
-              </ol>
-            </div>
-          </section>
-
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-border bg-surface-container-low py-8">
-        <div className="mx-auto max-w-[1440px] px-4 text-center sm:px-8">
-          <p className="text-body-md text-on-surface-variant leading-normal">
-            Windtunnel · Part of the Startup Lab Series · MIT Licensed · <a href="https://github.com/Bahniman" className="text-primary hover:underline">GitHub</a>
+          <p className="prose" style={{ marginTop: "2rem" }}>
+            Read the last row against the first. After twelve months, two executive departures and
+            a permanent dent in developer trust, Unity landed on an ordinary price increase, which
+            is roughly the least dramatic option that was available on day one. The cost was not
+            the price change. It was choosing the wrong structure and finding out in public.
           </p>
-        </div>
-      </footer>
+        </section>
+
+        {/* ----------------------------- mechanism ---------------------------- */}
+        <section className="shell section band">
+          <div className="section-head">
+            <span className="idx">3 parts</span>
+            <h2 className="h2">What the simulation actually does</h2>
+            <p className="note">Not a forecast. A distribution of outcomes with the bad tail visible.</p>
+          </div>
+
+          <div className="rows">
+            <article className="row">
+              <span className="num">01</span>
+              <div><h3 className="title">Build the cohorts from evidence</h3><p className="role">Synthetic, not invented</p></div>
+              <div>
+                <p className="desc">
+                  Cohorts are generated from real support transcripts, review text and transaction
+                  history, so price sensitivity comes from how customers already behaved rather
+                  than from a segment name someone chose in a workshop. A cohort that complains
+                  about billing in support tickets gets modelled as one that churns on a rise.
+                </p>
+              </div>
+            </article>
+            <article className="row">
+              <span className="num">02</span>
+              <div><h3 className="title">Run it thousands of times</h3><p className="role">Monte Carlo</p></div>
+              <div>
+                <p className="desc">
+                  A single projected number hides the thing you need. Running the change repeatedly
+                  across sampled behaviour produces a distribution, which is where you see that a
+                  median gain of four percent can still carry a meaningful probability of losing
+                  your best-paying segment.
+                </p>
+              </div>
+            </article>
+            <article className="row">
+              <span className="num">03</span>
+              <div><h3 className="title">Report where it breaks, not whether to ship</h3><p className="role">Structured recommendation</p></div>
+              <div>
+                <p className="desc">
+                  The useful output is not go or no-go. It is which cohort breaks first, at what
+                  threshold, and which sequencing keeps the damage contained. Staging a rise on the
+                  least price-sensitive group first is a different decision from cancelling it.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        {/* ------------------------------- demo ------------------------------- */}
+        <section className="shell section band" id="demo">
+          <div className="section-head">
+            <span className="idx">Sandbox</span>
+            <h2 className="h2">Move the price. Watch the tail.</h2>
+            <p className="note">A fictional subscription business. Change the increase and the cohort mix, and read the downside percentile rather than the median.</p>
+          </div>
+          <PricingMonteCarlo />
+        </section>
+
+        {/* ---------------------------- the objection -------------------------- */}
+        <section className="shell section band">
+          <div className="section-head">
+            <span className="idx">Honest</span>
+            <h2 className="h2">Where this is weakest</h2>
+            <p className="note">The objections a CFO would actually raise.</p>
+          </div>
+          <div className="prose" style={{ display: "grid", gap: "1.25rem" }}>
+            <p>
+              <strong>A simulation is only as good as its behavioural assumptions.</strong> If the
+              model of how a cohort reacts to a rise is wrong, running it ten thousand times
+              produces a very confident wrong answer. The output should be read as a way to find
+              the breaking point, not as a prediction of revenue.
+            </p>
+            <p>
+              <strong>Unity&rsquo;s failure was not purely quantitative.</strong> The revolt was
+              about retroactivity and trust, that a fee could apply to games already shipped, and
+              no cohort model captures a community deciding it has been betrayed. Simulation would
+              have flagged the churn risk; it would not have measured the outrage.
+            </p>
+            <p>
+              <strong>The data needed is data most firms handle badly.</strong> Support transcripts
+              and review text sit in three systems and a spreadsheet. The honest first version is
+              narrow, one product line and one pricing question, rather than a general engine for
+              strategy.
+            </p>
+          </div>
+        </section>
+
+        {/* ------------------------------ decoder ----------------------------- */}
+        <section className="shell section band">
+          <div className="section-head">
+            <span className="idx">Plain</span>
+            <h2 className="h2">The words, without the jargon</h2>
+            <p className="note">For anyone reading this who does not build software.</p>
+          </div>
+          <JargonDecoder />
+        </section>
+
+        {/* ------------------------------ sources ----------------------------- */}
+        <section className="shell section band">
+          <div className="section-head">
+            <span className="idx">Checkable</span>
+            <h2 className="h2">Sources</h2>
+            <p className="note">The Unity timeline above, traceable.</p>
+          </div>
+          <ol className="src">
+            <li>
+              Unity cancels the Runtime Fee and moves to seat-based pricing, September 2024.{" "}
+              <a href="https://www.engadget.com/gaming/unity-dumps-the-runtime-fee-that-caused-a-developer-revolt-181559332.html" target="_blank" rel="noreferrer">Engadget</a>
+            </li>
+            <li>
+              A year of fallout, including the departure of the CEO, summarised at the point of
+              reversal.{" "}
+              <a href="https://www.pcgamer.com/gaming-industry/a-year-after-outraging-developers-blowing-up-its-reputation-and-saying-goodbye-to-its-ceo-unity-decides-runtime-fees-are-a-bad-idea-so-its-getting-rid-of-them/" target="_blank" rel="noreferrer">PC Gamer</a>
+            </li>
+            <li>
+              Unity Pro up 8% and Unity Enterprise up 25% as the replacement for the fee.{" "}
+              <a href="https://www.cgchannel.com/2024/09/unity-scraps-controversial-runtime-fee-but-raises-prices/" target="_blank" rel="noreferrer">CG Channel</a>
+            </li>
+            <li>
+              The original apology and revised fee criteria, September 2023.{" "}
+              <a href="https://www.theregister.com/software/2023/09/23/unity-apologizes-announces-revised-runtime-fee-criteria/325218" target="_blank" rel="noreferrer">The Register</a>
+            </li>
+          </ol>
+        </section>
+
+        {/* ------------------------------- footer ----------------------------- */}
+        <footer className="shell section band">
+          <div>
+            <h2 className="h2" style={{ fontSize: "1.5rem" }}>Built by Bahniman Talukdar</h2>
+            <p className="prose" style={{ marginTop: "0.75rem", fontSize: "0.9375rem" }}>
+              One of four protocols for the agent economy. A prototype and an argument, not a
+              company.
+            </p>
+            <p style={{ display: "flex", gap: "1.5rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
+              <a className="lnk" href="https://bahniman.github.io">Portfolio</a>
+              <a className="lnk" href="https://github.com/Bahniman/windtunnel" target="_blank" rel="noreferrer">Source</a>
+            </p>
+          </div>
+        </footer>
+      </main>
     </div>
   );
 }
