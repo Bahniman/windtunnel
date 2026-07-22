@@ -168,7 +168,7 @@ export default function LandingPage() {
           <div className="section-head">
             <span className="idx">Sandbox</span>
             <h2 className="h2">Move the price. Watch the tail.</h2>
-            <p className="note">A fictional subscription business. Change the increase and the cohort mix, and read the downside percentile rather than the median.</p>
+            <p className="note">Sample subscription business. Change the increase and the cohort mix, then read the downside percentile rather than the median.</p>
           </div>
           <PricingMonteCarlo />
         </section>
@@ -245,8 +245,7 @@ export default function LandingPage() {
           <div>
             <h2 className="h2" style={{ fontSize: "1.5rem" }}>Built by Bahniman Talukdar</h2>
             <p className="prose" style={{ marginTop: "0.75rem", fontSize: "0.9375rem" }}>
-              One of four protocols for the agent economy. A prototype and an argument, not a
-              company.
+              One of four protocols for the agent economy.
             </p>
             <p style={{ display: "flex", gap: "1.5rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
               <a className="lnk" href="https://bahniman.github.io">Portfolio</a>
