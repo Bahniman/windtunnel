@@ -3,21 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Windtunnel — rehearse decisions before launch</title>
+    <title>Windtunnel — a pricing scenario sandbox</title>
     <meta
       name="description"
-      content="Windtunnel simulates pricing, subscription, and policy changes against a modeled population of synthetic customers. Decisions tested before execution."
+      content="Windtunnel is an illustrative pricing scenario sandbox using three hand-set customer cohorts and 500 repeatable model runs. It is not a calibrated forecast or launch recommendation."
     />
     <meta property="og:title" content="Windtunnel" />
     <meta
       property="og:description"
-      content="Rehearse decisions before launch. Windtunnel builds synthetic customer populations to run Monte Carlo simulations."
+      content="Rehearse a pricing scenario with explicit assumptions, percentiles, and model limitations."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        var root = document.documentElement;
+        root.setAttribute("data-theme", theme);
+        root.classList.toggle("dark", theme === "dark");
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

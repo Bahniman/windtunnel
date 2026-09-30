@@ -7,20 +7,22 @@ interface Term {
 }
 
 const TERMS: Term[] = [
-  { word: "Synthetic Population", definition: "Thousands of simulated customer profiles whose behavior matches real support logs, reviews, and transaction counts — not static buyer personas." },
-  { word: "Monte Carlo", definition: "Executing the same pricing or subscription logic hundreds of times with parameterized noise to map out distributions of likely ARR paths." },
-  { word: "Confidence Band", definition: "A range showing where most outcomes land (e.g. '80% of iterations land between -1.5% and +4.2%'), mapping statistical certainty." },
-  { word: "Churn Probability", definition: "The probability that a specific customer cancels subscription plans, modeled on price elasticity, shock value, and historical satisfaction." },
-  { word: "Model Backtesting", definition: "Validating the simulation by replaying historical price decisions to verify if the model outputs match the actual real-world results." },
+  { word: "Assumed cohorts", definition: "Three simplified groups in this demo with hand-set shares, price sensitivities, satisfaction scores and monthly spend. They are not derived from customer records." },
+  { word: "Seeded runs", definition: "Five hundred repeatable iterations that vary modeled churn within set bounds. The output describes this model, not a real company's likely results." },
+  { word: "Percentile range", definition: "The 10th-to-90th percentile of these simulation runs. It is not a statistical confidence interval." },
+  { word: "Modeled churn", definition: "An assumed share of each cohort that leaves in the simulation, based on the demo's sensitivity and satisfaction parameters." },
+  { word: "Backtesting", definition: "Comparing a model with historical outcomes. This prototype does not perform backtesting." },
 ];
 
 export function JargonDecoder() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="rounded-xl border border-border bg-card p-4">
+    <div className="decoder">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls="windtunnel-jargon-table"
         className="flex w-full items-center justify-between font-sans text-sm font-bold text-foreground focus:outline-none"
       >
         <span className="flex items-center gap-2">
@@ -31,7 +33,7 @@ export function JargonDecoder() {
       </button>
 
       {isOpen && (
-        <div className="mt-4 overflow-x-auto">
+        <div id="windtunnel-jargon-table" className="mt-4 overflow-x-auto">
           <table className="w-full border-collapse text-left text-xs md:text-sm">
             <thead>
               <tr className="border-b border-border/80 bg-foreground/[0.02]">

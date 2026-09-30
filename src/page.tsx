@@ -1,42 +1,29 @@
-import { ThemeToggle } from "@/components/theme-toggle";
 import { PricingMonteCarlo } from "@/components/pricing-monte-carlo";
 import { JargonDecoder } from "@/components/jargon-decoder";
+import { SuiteHeader } from "@/components/suite-header";
 
 export default function LandingPage() {
   return (
-    <div className="relative min-h-screen bg-surface text-on-surface font-sans">
+    <div>
 
-      {/* ------------------------------ masthead ------------------------------ */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-outline-variant/50 bg-surface/80 backdrop-blur-xl backdrop-saturate-150">
-        <div className="shell">
-          <div className="flex items-center justify-between h-16">
-            <a href="https://bahniman.github.io" className="flex items-center gap-2.5">
-              <span className="inline-block h-[7px] w-[7px] bg-primary" />
-              <span className="text-[1.0625rem] font-extrabold tracking-[-0.02em]">Windtunnel</span>
-            </a>
-            <nav className="flex items-center gap-5">
-              <a href="https://bahniman.github.io" className="mono hover:text-on-surface transition-colors">&larr; Portfolio</a>
-              <a href="https://github.com/Bahniman/windtunnel" target="_blank" rel="noreferrer" className="mono hover:text-on-surface transition-colors">Source</a>
-              <ThemeToggle />
-            </nav>
-          </div>
-        </div>
-      </header>
+      <SuiteHeader name="Windtunnel" sections={[
+        { label: "Case", href: "#problem" },
+        { label: "Sandbox", href: "#demo" },
+        { label: "Limits", href: "#limits" },
+        { label: "Sources", href: "#sources" },
+      ]} />
 
-      <main className="pt-16">
+      <main id="main" className="suite-main">
 
         {/* ------------------------------ opening ----------------------------- */}
         <section className="shell section hero-grid">
           <div>
-            <h1 className="display">Rehearse decisions<br />before launch.</h1>
-            <p className="lede" style={{ marginTop: "2rem" }}>
-              You can A/B test a button. You cannot A/B test a pricing structure, because every
-              customer has to be on one model and the ones you experiment on are real. So the
-              biggest commercial decisions get made on a spreadsheet and a hunch. Windtunnel
-              builds synthetic customer cohorts from real support and transaction history and
-              runs the change thousands of times first.
+            <h1 className="display">Pricing scenarios<span className="hero-accent">before launch.</span></h1>
+            <p className="lede">
+              A client-side sandbox for exploring how pricing assumptions change modeled outcomes.
             </p>
-            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginTop: "2.5rem" }}>
+            <p className="hero-note">Illustrative cohorts only · no customer data, forecast, or launch recommendation.</p>
+            <div className="hero-cta">
               <a href="#demo" className="inline-flex items-center gap-2 rounded bg-primary px-6 py-3 text-label-lg font-medium text-on-primary">
                 Run a simulation
               </a>
@@ -48,19 +35,18 @@ export default function LandingPage() {
 
           <dl className="meta">
             <div><dt>Layer</dt><dd>Simulation</dd></div>
-            <div><dt>Status</dt><dd>Working prototype, MIT licensed</dd></div>
-            <div><dt>Method</dt><dd>Monte Carlo over synthetic cohorts</dd></div>
-            <div><dt>Part of</dt><dd>Four protocols for the agent economy</dd></div>
+            <div><dt>Status</dt><dd>Illustrative model · MIT licensed</dd></div>
+            <div><dt>Method</dt><dd>500 seeded runs across assumed cohorts</dd></div>
+            <div><dt>Scope</dt><dd>No customer data or forecast</dd></div>
           </dl>
         </section>
 
         {/* ----------------------------- statement ---------------------------- */}
         <section className="statement">
           <div className="shell">
-            <p className="line">Unity spent a year, a CEO and most of its goodwill discovering it should have raised prices 8%.</p>
+            <p className="line">A pricing change is a business decision. A model can help make its assumptions visible.</p>
             <p className="by">
-              The whole episode is a public, dated record of a decision nobody could test before
-              shipping it.
+              Windtunnel uses a documented pricing-policy reversal as context. Its small model does not establish what would have predicted or prevented that outcome.
             </p>
           </div>
         </section>
@@ -69,8 +55,8 @@ export default function LandingPage() {
         <section className="shell section band" id="problem">
           <div className="section-head">
             <span className="idx">Case</span>
-            <h2 className="h2">The most expensive kind of untested change</h2>
-            <p className="note">Not a hypothetical. A timeline anyone can check.</p>
+            <h2 className="h2">A pricing-policy change in public view</h2>
+            <p className="note">A dated policy change, followed by a published revision.</p>
           </div>
 
           <div className="table-wrap">
@@ -82,17 +68,17 @@ export default function LandingPage() {
                 <tr>
                   <td>Per-install Runtime Fee announced<span className="sub">Developers would pay each time a game was installed past a threshold</span></td>
                   <td className="n">Sep 2023</td>
-                  <td className="n">Immediate revolt</td>
+                  <td className="n">Public backlash</td>
                 </tr>
                 <tr>
                   <td>Terms walked back after backlash<span className="sub">Studios publicly threatened to leave the engine</span></td>
                   <td className="n">Sep 2023</td>
-                  <td className="n">Trust gone</td>
+                  <td className="n">Terms revised</td>
                 </tr>
                 <tr>
-                  <td>CEO John Riccitiello departs<span className="sub">Unity Create head Marc Whitten also resigned</span></td>
+                  <td>CEO John Riccitiello departs</td>
                   <td className="n">Oct 2023</td>
-                  <td className="n">Leadership</td>
+                  <td className="n">CEO departed</td>
                 </tr>
                 <tr>
                   <td>Runtime Fee cancelled outright by the new CEO</td>
@@ -100,7 +86,7 @@ export default function LandingPage() {
                   <td className="n">Reversed</td>
                 </tr>
                 <tr>
-                  <td><strong>What they did instead: raise subscription prices</strong><span className="sub">Unity Pro +8%, Unity Enterprise +25%</span></td>
+                  <td><strong>Unity also announced subscription price changes</strong><span className="sub">Unity Pro +8%, Unity Enterprise +25%</span></td>
                   <td className="n">Sep 2024</td>
                   <td className="n"><strong>+8% / +25%</strong></td>
                 </tr>
@@ -109,10 +95,9 @@ export default function LandingPage() {
           </div>
 
           <p className="prose" style={{ marginTop: "2rem" }}>
-            Read the last row against the first. After twelve months, two executive departures and
-            a permanent dent in developer trust, Unity landed on an ordinary price increase, which
-            is roughly the least dramatic option that was available on day one. The cost was not
-            the price change. It was choosing the wrong structure and finding out in public.
+            Unity later cancelled the Runtime Fee and announced subscription price changes. That
+            sequence is a useful case for discussing policy reversals; it does not show that this
+            illustrative model could have predicted the response or selected a better policy.
           </p>
         </section>
 
@@ -121,42 +106,40 @@ export default function LandingPage() {
           <div className="section-head">
             <span className="idx">3 parts</span>
             <h2 className="h2">What the simulation actually does</h2>
-            <p className="note">Not a forecast. A distribution of outcomes with the bad tail visible.</p>
+            <p className="note">A distribution of modeled outcomes, including downside runs.</p>
           </div>
 
           <div className="rows">
             <article className="row">
               <span className="num">01</span>
-              <div><h3 className="title">Build the cohorts from evidence</h3><p className="role">Synthetic, not invented</p></div>
+              <div><h3 className="title">Make the assumptions visible</h3><p className="role">Hand-set sample cohorts</p></div>
               <div>
                 <p className="desc">
-                  Cohorts are generated from real support transcripts, review text and transaction
-                  history, so price sensitivity comes from how customers already behaved rather
-                  than from a segment name someone chose in a workshop. A cohort that complains
-                  about billing in support tickets gets modelled as one that churns on a rise.
+                  The current demo does not ingest customer records. It uses three hand-set
+                  cohorts with explicit shares, sensitivity, satisfaction and monthly spend
+                  assumptions so visitors can see how changing those assumptions affects output.
                 </p>
               </div>
             </article>
             <article className="row">
               <span className="num">02</span>
-              <div><h3 className="title">Run it thousands of times</h3><p className="role">Monte Carlo</p></div>
+              <div><h3 className="title">Repeat the sampled scenario</h3><p className="role">500 seeded runs</p></div>
               <div>
                 <p className="desc">
-                  A single projected number hides the thing you need. Running the change repeatedly
-                  across sampled behaviour produces a distribution, which is where you see that a
-                  median gain of four percent can still carry a meaningful probability of losing
-                  your best-paying segment.
+                  Five hundred runs vary modeled churn assumptions within a bounded range. The
+                  median and 10th-to-90th percentile range describe this simulation only; they are
+                  not a confidence interval or forecast of a real business.
                 </p>
               </div>
             </article>
             <article className="row">
               <span className="num">03</span>
-              <div><h3 className="title">Report where it breaks, not whether to ship</h3><p className="role">Structured recommendation</p></div>
+              <div><h3 className="title">Inspect the trade-offs</h3><p className="role">No launch recommendation</p></div>
               <div>
                 <p className="desc">
-                  The useful output is not go or no-go. It is which cohort breaks first, at what
-                  threshold, and which sequencing keeps the damage contained. Staging a rise on the
-                  least price-sensitive group first is a different decision from cancelling it.
+                  The display compares modeled revenue change and churn under three simple
+                  strategies. It does not account for contract terms, competition, acquisition,
+                  costs or trust, and should not be used to make a real pricing decision.
                 </p>
               </div>
             </article>
@@ -168,36 +151,34 @@ export default function LandingPage() {
           <div className="section-head">
             <span className="idx">Sandbox</span>
             <h2 className="h2">Move the price. Watch the tail.</h2>
-            <p className="note">Sample subscription business. Change the increase and the cohort mix, then read the downside percentile rather than the median.</p>
+            <p className="note">Illustrative subscription business · 500 deterministic runs · assumed cohorts, not company data.</p>
           </div>
           <PricingMonteCarlo />
         </section>
 
         {/* ---------------------------- the objection -------------------------- */}
-        <section className="shell section band">
+        <section className="shell section band" id="limits">
           <div className="section-head">
             <span className="idx">Honest</span>
             <h2 className="h2">Where this is weakest</h2>
-            <p className="note">The objections a CFO would actually raise.</p>
+            <p className="note">Questions to answer before evaluating this approach.</p>
           </div>
           <div className="prose" style={{ display: "grid", gap: "1.25rem" }}>
             <p>
-              <strong>A simulation is only as good as its behavioural assumptions.</strong> If the
-              model of how a cohort reacts to a rise is wrong, running it ten thousand times
-              produces a very confident wrong answer. The output should be read as a way to find
-              the breaking point, not as a prediction of revenue.
+              <strong>Outputs depend on the behavioral assumptions.</strong> Repeating a scenario
+              does not validate the modeled response. Read these results as sensitivity to stated
+              inputs, not as a prediction of revenue or a search for a break-even point.
             </p>
             <p>
-              <strong>Unity&rsquo;s failure was not purely quantitative.</strong> The revolt was
-              about retroactivity and trust, that a fee could apply to games already shipped, and
-              no cohort model captures a community deciding it has been betrayed. Simulation would
-              have flagged the churn risk; it would not have measured the outrage.
+              <strong>The Unity dispute included factors outside this model.</strong> Public
+              discussion included retroactivity and trust concerns. This demo has no variables for
+              contract history, communications or sentiment, so its outputs do not describe those
+              factors or establish how an alternative policy would have performed.
             </p>
             <p>
-              <strong>The data needed is data most firms handle badly.</strong> Support transcripts
-              and review text sit in three systems and a spreadsheet. The honest first version is
-              narrow, one product line and one pricing question, rather than a general engine for
-              strategy.
+              <strong>A future calibrated version would depend on usable company data.</strong>
+              Data availability, governance and quality would need to be checked for each use case
+              before deciding whether a model can support it.
             </p>
           </div>
         </section>
@@ -213,13 +194,17 @@ export default function LandingPage() {
         </section>
 
         {/* ------------------------------ sources ----------------------------- */}
-        <section className="shell section band">
+        <section className="shell section band" id="sources">
           <div className="section-head">
             <span className="idx">Checkable</span>
             <h2 className="h2">Sources</h2>
             <p className="note">The Unity timeline above, traceable.</p>
           </div>
           <ol className="src">
+            <li>
+              Unity's September 2024 update cancelling the Runtime Fee and describing subscription
+              price changes. <a href="https://unity.com/blog/unity-is-canceling-the-runtime-fee" target="_blank" rel="noreferrer">Unity</a>
+            </li>
             <li>
               Unity cancels the Runtime Fee and moves to seat-based pricing, September 2024.{" "}
               <a href="https://www.engadget.com/gaming/unity-dumps-the-runtime-fee-that-caused-a-developer-revolt-181559332.html" target="_blank" rel="noreferrer">Engadget</a>
@@ -233,10 +218,6 @@ export default function LandingPage() {
               Unity Pro up 8% and Unity Enterprise up 25% as the replacement for the fee.{" "}
               <a href="https://www.cgchannel.com/2024/09/unity-scraps-controversial-runtime-fee-but-raises-prices/" target="_blank" rel="noreferrer">CG Channel</a>
             </li>
-            <li>
-              The original apology and revised fee criteria, September 2023.{" "}
-              <a href="https://www.theregister.com/software/2023/09/23/unity-apologizes-announces-revised-runtime-fee-criteria/325218" target="_blank" rel="noreferrer">The Register</a>
-            </li>
           </ol>
         </section>
 
@@ -245,7 +226,7 @@ export default function LandingPage() {
           <div>
             <h2 className="h2" style={{ fontSize: "1.5rem" }}>Built by Bahniman Talukdar</h2>
             <p className="prose" style={{ marginTop: "0.75rem", fontSize: "0.9375rem" }}>
-              One of four protocols for the agent economy.
+              One of four prototypes exploring the agent economy.
             </p>
             <p style={{ display: "flex", gap: "1.5rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
               <a className="lnk" href="https://bahniman.github.io">Portfolio</a>
