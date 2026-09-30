@@ -11,12 +11,13 @@ The website is a deterministic local model, not a forecast, confidence interval,
 ## Explore the site
 
 - **Public pricing-policy example:** a dated Unity policy change and later revision, with links to sources. This is context for asking what scenario models can and cannot answer; the model does not claim it could have predicted the decision.
-- **Pricing sandbox:** vary the assumptions, inspect a 500-run distribution, compare modeled cohort churn, and reset the controls. Invalid cohort counts are reported while the last valid count remains in use.
+- **Hero scenario sheet:** preview Flat, Tiered, or SMB-only patterns on the existing model with a fixed 12% base move, 8,500 assumed subscribers, and 500 seeded runs.
+- **Pricing sandbox:** vary the price increase, cohort count, and strategy; inspect a 500-run distribution, compare modeled cohort churn, and reset the controls. Invalid cohort counts are reported while the last valid count remains in use.
 - **Limitations and jargon decoder:** review the questions that would need real evidence and plain-language definitions.
 
 ## Design and accessibility
 
-Windtunnel uses the shared Riso Poster design system and project header used by Realium, Heirloom, and Turnstile. On wide screens the header shows section links; on narrower screens it uses a native disclosure menu with page and project navigation. Theme selection is stored in local storage.
+Windtunnel uses the shared Riso Poster design system and responsive project header used by Realium, Heirloom, and Turnstile. Its hero worksheet recalculates the same local model when visitors choose Flat, Tiered, or SMB-only; its cohort and run assumptions stay visible. On narrower screens, section links move into a native disclosure menu; the light/dark theme choice is stored locally. Wheel input uses smooth scrolling, while touch gestures and the browser scrollbar remain native. Section links update the URL fragment, move focus to the destination, and support browser back/forward. The header marks the current section and shows reading progress. A back-to-top link returns focus to the main content. Reduced-motion preferences keep the plotted distribution static.
 
 The page includes a skip link, semantic headings, labeled inputs, announced invalid-input and reset feedback, pressed states for strategy options, a text summary for the chart, keyboard-operable controls, and reduced-motion styling. These are implemented features, not a formal accessibility certification.
 
@@ -47,10 +48,13 @@ The Python CLI and website are separate implementations. The CLI builds sample p
 ## Source map
 
 - `src/page.tsx` — website narrative and sections.
+- `src/components/pricing-hero-sheet.tsx` — interactive hero strategy preview using the website model defaults.
 - `src/components/pricing-monte-carlo.tsx` — website controls, charts, and result summary.
 - `src/lib/pricing-model.ts` — deterministic website scenario model and assumed cohorts.
 - `windtunnel/population.py`, `windtunnel/simulate.py` — separate Python prototype.
 - `demo.py`, `sample_data/reviews.csv` — CLI walkthrough and bundled sample input.
+- `src/components/suite-header.tsx`, `src/components/suite-motion.tsx` — shared project navigation, anchor focus/history, active-section state, progress, and back-to-top behavior.
+- `src/riso-tokens.css`, `src/riso-suite.css`, `src/riso-motion.css` — shared Riso tokens, components, and motion/reduced-motion rules.
 - `vite.config.ts` — `/windtunnel/` base path and `docs/` build output.
 
 ## License
