@@ -1,10 +1,11 @@
 import { PricingMonteCarlo } from "@/components/pricing-monte-carlo";
+import { PricingHeroSheet } from "@/components/pricing-hero-sheet";
 import { JargonDecoder } from "@/components/jargon-decoder";
 import { SuiteHeader } from "@/components/suite-header";
 
 export default function LandingPage() {
   return (
-    <div>
+    <div className="windtunnel-page">
 
       <SuiteHeader name="Windtunnel" sections={[
         { label: "Case", href: "#problem" },
@@ -18,31 +19,26 @@ export default function LandingPage() {
         {/* ------------------------------ opening ----------------------------- */}
         <section className="shell section hero-grid">
           <div>
-            <h1 className="display">Pricing scenarios<span className="hero-accent">before launch.</span></h1>
+            <h1 className="display"><span className="headline-ink">Pricing</span> scenarios<span className="hero-accent">before launch.</span></h1>
             <p className="lede">
               A client-side sandbox for exploring how pricing assumptions change modeled outcomes.
             </p>
             <p className="hero-note">Illustrative cohorts only · no customer data, forecast, or launch recommendation.</p>
             <div className="hero-cta">
-              <a href="#demo" className="inline-flex items-center gap-2 rounded bg-primary px-6 py-3 text-label-lg font-medium text-on-primary">
+              <a href="#demo" className="suite-press inline-flex items-center gap-2 rounded bg-primary px-6 py-3 text-label-lg font-medium text-on-primary">
                 Run a simulation
               </a>
-              <a href="#problem" className="inline-flex items-center gap-2 rounded border border-outline px-6 py-3 text-label-lg font-medium">
+              <a href="#problem" className="suite-press inline-flex items-center gap-2 rounded border border-outline px-6 py-3 text-label-lg font-medium">
                 Read the argument
               </a>
             </div>
           </div>
 
-          <dl className="meta">
-            <div><dt>Layer</dt><dd>Simulation</dd></div>
-            <div><dt>Status</dt><dd>Illustrative model · MIT licensed</dd></div>
-            <div><dt>Method</dt><dd>500 seeded runs across assumed cohorts</dd></div>
-            <div><dt>Scope</dt><dd>No customer data or forecast</dd></div>
-          </dl>
+          <PricingHeroSheet />
         </section>
 
         {/* ----------------------------- statement ---------------------------- */}
-        <section className="statement">
+        <section className="statement suite-reveal">
           <div className="shell">
             <p className="line">A pricing change is a business decision. A model can help make its assumptions visible.</p>
             <p className="by">
