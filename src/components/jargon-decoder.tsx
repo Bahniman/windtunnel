@@ -23,7 +23,7 @@ export function JargonDecoder() {
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls="windtunnel-jargon-table"
-        className="flex w-full items-center justify-between font-sans text-sm font-bold text-foreground focus:outline-none"
+        className="flex w-full items-center justify-between font-sans text-sm font-bold text-foreground"
       >
         <span className="flex items-center gap-2">
           <BookOpen className="h-4 w-4 text-accent" />

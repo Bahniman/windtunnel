@@ -60,7 +60,7 @@ a { color: inherit; text-underline-offset: 3px; }
 .table .n { text-align:right; font-family:var(--mono); white-space:nowrap; }
 .sub { display:block; margin-top:4px; font-size:12px; color:var(--sec); }
 .src { display:grid; gap:12px; padding-left:24px; text-transform:none; letter-spacing:0; font-size:13px; }
-.src a { color:var(--blue); font-weight:700; }
+.src a { color:var(--blue-text); font-weight:700; }
 .lnk { font:12px var(--mono); }
 
 /* Calculator components: paper panels, firm outlines and legible data labels. */
@@ -80,8 +80,9 @@ a { color: inherit; text-underline-offset: 3px; }
 .field-error,.status-copy { min-height:1.45em; margin:6px 0 0; color:var(--tan); font:12px/1.45 var(--mono); }
 .choice-group { display:grid; gap:8px; padding:0; border:0; margin:0; }
 .strategy-option { display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; min-height:46px; padding:9px 11px; border:1.5px solid var(--line-2); border-radius:2px; background:transparent; color:var(--ink); font:11px var(--mono); text-align:left; cursor:pointer; }
-.strategy-option[aria-pressed="true"] { border:2px solid var(--ink); background:var(--pink); box-shadow:3px 3px 0 var(--shc); }
+.strategy-option[aria-pressed="true"] { border:2px solid var(--ink); background:var(--pink); color:#1d1a16; box-shadow:3px 3px 0 var(--shc); }
 .strategy-option small { color:var(--sec); text-align:right; }
+.strategy-option[aria-pressed="true"] small { color:#1d1a16; }
 .output-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 .metric-list,.segment-list { display:grid; gap:12px; }
 .metric-row,.segment-row { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font:12px var(--mono); }
