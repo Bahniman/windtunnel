@@ -21,6 +21,8 @@ Windtunnel uses the shared Riso Poster design system and responsive project head
 
 The page includes a skip link, semantic headings, labeled inputs, announced invalid-input and reset feedback, pressed states for strategy options, a text summary for the chart, keyboard-operable controls, and reduced-motion styling. These are implemented features, not a formal accessibility certification.
 
+Selected pricing patterns use dark ink on pink so both their names and explanatory notes stay readable in either theme. Source links use readable ink variants, and the jargon disclosure supports keyboard opening and closing.
+
 ## Run the website locally
 
 Requires Node.js 22.12+ and npm.
