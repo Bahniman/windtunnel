@@ -172,3 +172,17 @@ a { color: inherit; text-underline-offset: 3px; }
   .price-percentiles strong { font-size:9px; }
 }
 .windtunnel-page .table { min-width:0 !important; } .windtunnel-page .table th,.windtunnel-page .table td { padding:11px 10px; } @media(max-width:520px){ .windtunnel-page .table .sub { display:none; } }
+
+/* Signature: the Unity story as a stamped timeline. */
+.wt-line { position:relative; display:grid; gap:0; margin:0; padding:0 0 0 34px; list-style:none; }
+.wt-line::before { content:""; position:absolute; left:10px; top:8px; bottom:8px; border-left:3px solid var(--ink); }
+.wt-line li { position:relative; display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:16px; row-gap:3px; padding:14px 0 18px; border-bottom:1.5px dashed var(--line-2); }
+.wt-line li::before { content:""; position:absolute; left:-31px; top:18px; width:16px; height:16px; border:2.5px solid var(--ink); border-radius:50%; background:var(--card); }
+.wt-line li.wt-end::before { background:var(--pink); }
+.wt-line time { grid-column:1; font:700 11.5px var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--tan); }
+.wt-line b { grid-column:1; font-size:19px; line-height:1.2; letter-spacing:-.02em; }
+.wt-line span { grid-column:1; font-size:14.5px; color:var(--sec); }
+.wt-stamp { grid-column:2; grid-row:1 / span 3; align-self:center; padding:6px 12px; border:2.5px solid var(--ink); border-radius:4px; font:700 13px var(--mono); font-style:normal; text-transform:uppercase; letter-spacing:.04em; background:var(--card); color:var(--ink); rotate:-4deg; box-shadow:3px 3px 0 var(--shc); }
+.wt-line li:nth-child(even) .wt-stamp { rotate:3deg; }
+.wt-end .wt-stamp { background:var(--yellow); color:#1d1a16; font-size:15px; }
+@media (max-width:520px) { .wt-line li { grid-template-columns:1fr; } .wt-stamp { grid-column:1; grid-row:auto; justify-self:start; margin-top:8px; } }

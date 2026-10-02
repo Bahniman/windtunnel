@@ -10,8 +10,8 @@ export default function LandingPage() {
 
       <SuiteHeader name="Windtunnel" sections={[
         { label: "The case", href: "#problem" },
-        { label: "How it works", href: "#how" },
         { label: "Try it", href: "#demo" },
+        { label: "How it works", href: "#how" },
         { label: "Weak spots", href: "#limits" },
         { label: "Sources", href: "#sources" },
       ]} />
@@ -76,40 +76,13 @@ export default function LandingPage() {
             <h2>One fee, <em>one bad year.</em></h2>
           </div>
           <div className="pk-split">
-            <div className="table-wrap">
-              <table className="table">
-                <thead>
-                  <tr><th>Unity Runtime Fee</th><th className="n">When</th><th className="n">Result</th></tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Per-install fee announced<span className="sub">Developers pay each time a game is installed past a threshold</span></td>
-                    <td className="n">Sep 2023</td>
-                    <td className="n">Backlash</td>
-                  </tr>
-                  <tr>
-                    <td>Terms walked back<span className="sub">Studios publicly threaten to leave the engine</span></td>
-                    <td className="n">Sep 2023</td>
-                    <td className="n">Revised</td>
-                  </tr>
-                  <tr>
-                    <td>CEO John Riccitiello departs</td>
-                    <td className="n">Oct 2023</td>
-                    <td className="n">Exit</td>
-                  </tr>
-                  <tr>
-                    <td>Fee cancelled by the new CEO</td>
-                    <td className="n">Sep 2024</td>
-                    <td className="n">Reversed</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Subscription prices raised instead</strong><span className="sub">Unity Pro +8%, Unity Enterprise +25%</span></td>
-                    <td className="n">Sep 2024</td>
-                    <td className="n"><strong>+8% / +25%</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <ol className="wt-line" aria-label="Unity Runtime Fee timeline">
+              <li><time>Sep 2023</time><b>Per-install fee announced</b><span>Developers pay each time a game is installed past a threshold</span><em className="wt-stamp">Backlash</em></li>
+              <li><time>Sep 2023</time><b>Terms walked back</b><span>Studios publicly threaten to leave the engine</span><em className="wt-stamp">Revised</em></li>
+              <li><time>Oct 2023</time><b>CEO John Riccitiello departs</b><em className="wt-stamp">Exit</em></li>
+              <li><time>Sep 2024</time><b>Fee cancelled by the new CEO</b><em className="wt-stamp">Reversed</em></li>
+              <li className="wt-end"><time>Sep 2024</time><b>Subscription prices raised instead</b><span>Unity Pro +8%, Unity Enterprise +25%</span><em className="wt-stamp">+8% / +25%</em></li>
+            </ol>
             <div>
               <div className="pk-prose">
                 <p>
@@ -128,6 +101,19 @@ export default function LandingPage() {
                 <small>Why 500 runs, not one forecast</small>
               </figure>
             </div>
+          </div>
+        </section>
+
+        {/* -------------------------------- the demo -------------------------------- */}
+        <section className="pk-wrap pk-sec" id="demo">
+          <div className="pk-head">
+            <p className="pk-kick"><span className="dot" /> Try it</p>
+            <h2>Move the price. <em>Watch the tail.</em></h2>
+            <p className="pk-lede">Pick an increase, a subscriber count and how the increase lands. The 500 runs redraw instantly.</p>
+          </div>
+          <div className="pk-stage">
+            <span className="pk-stage-tag">Live in your browser</span>
+            <PricingMonteCarlo />
           </div>
         </section>
 
@@ -157,19 +143,6 @@ export default function LandingPage() {
               <span className="eg">10th percentile · median · 90th percentile</span>
             </li>
           </ol>
-        </section>
-
-        {/* -------------------------------- the demo -------------------------------- */}
-        <section className="pk-wrap pk-sec" id="demo">
-          <div className="pk-head">
-            <p className="pk-kick"><span className="dot" /> Try it</p>
-            <h2>Move the price. <em>Watch the tail.</em></h2>
-            <p className="pk-lede">Pick an increase, a subscriber count and how the increase lands. The 500 runs redraw instantly.</p>
-          </div>
-          <div className="pk-stage">
-            <span className="pk-stage-tag">Live in your browser</span>
-            <PricingMonteCarlo />
-          </div>
         </section>
 
         {/* ------------------------------- weak spots ------------------------------- */}
