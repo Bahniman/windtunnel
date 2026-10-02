@@ -7,11 +7,11 @@ interface Term {
 }
 
 const TERMS: Term[] = [
-  { word: "Assumed cohorts", definition: "Three simplified groups in this demo with hand-set shares, price sensitivities, satisfaction scores and monthly spend. They are not derived from customer records." },
-  { word: "Seeded runs", definition: "Five hundred repeatable iterations that vary modeled churn within set bounds. The output describes this model, not a real company's likely results." },
-  { word: "Percentile range", definition: "The 10th-to-90th percentile of these simulation runs. It is not a statistical confidence interval." },
-  { word: "Modeled churn", definition: "An assumed share of each cohort that leaves in the simulation, based on the demo's sensitivity and satisfaction parameters." },
-  { word: "Backtesting", definition: "Comparing a model with historical outcomes. This prototype does not perform backtesting." },
+  { word: "Assumed cohorts", definition: "Groups of customers who behave alike. Here: deal hunters, routine mid-market buyers and enterprise power users, each with its own spend and price sensitivity." },
+  { word: "Seeded runs", definition: "The same scenario played 500 times with small random differences, so you see a range of outcomes, not one guess." },
+  { word: "Percentile range", definition: "Line up all 500 results. The 10th percentile is the bad-but-plausible end, the 90th the good end." },
+  { word: "Modeled churn", definition: "The share of a group that cancels after the price change." },
+  { word: "Backtesting", definition: "Checking a model against what really happened in the past. The next step for a version fed with real customer data." },
 ];
 
 export function JargonDecoder() {
@@ -27,7 +27,7 @@ export function JargonDecoder() {
       >
         <span className="flex items-center gap-2">
           <BookOpen className="h-4 w-4 text-accent" />
-          Jargon Decoder
+          The words, in plain English
         </span>
         {isOpen ? <ChevronUp className="h-4 w-4 text-muted-foreground" /> : <ChevronDown className="h-4 w-4 text-muted-foreground" />}
       </button>

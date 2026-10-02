@@ -24,6 +24,8 @@ export const SEGMENTS: Segment[] = [
   { id: 2, name: "Enterprise · Power users", share: 0.25, sensitivity: 0.22, satisfaction: 0.88, monthlySpend: 4800 },
 ];
 
+const TOLERANCE = 0.2;
+
 function random(seed: number) {
   let value = seed >>> 0 || 1;
   return () => {
@@ -38,13 +40,17 @@ export function runPricingSimulation(priceIncrease: number, cohortSize: number, 
   const churnTotals = SEGMENTS.map(() => 0);
   const deltas = Array.from({ length: runs }, () => {
     let revenue = 0;
+    // One draw per run for the market's mood, shared by every group: competitors, timing, how the change is told.
+    const mood = 0.6 + rnd() * 0.8;
     for (const segment of SEGMENTS) {
       const count = segment.share * cohortSize;
       const baseShock = priceIncrease / 100;
       const applied = strategy === "tiered" ? (segment.id === 2 ? baseShock * 1.5 : segment.id === 1 ? baseShock * 0.5 : 0)
         : strategy === "smb" ? (segment.id === 0 ? baseShock * 1.5 : 0) : baseShock;
       const noise = (rnd() - 0.5) * 0.18;
-      const probability = Math.min(0.95, Math.max(0, (segment.sensitivity + noise) * applied * (1.4 - segment.satisfaction)));
+      // Customers tolerate small rises; past roughly 20% each extra point drives more people out.
+      const tipping = 1 + (applied / TOLERANCE) ** 2;
+      const probability = Math.min(0.95, Math.max(0, (segment.sensitivity + noise) * mood * applied * (1.4 - segment.satisfaction) * tipping));
       const churned = Math.min(count, Math.max(0, count * probability + (rnd() - 0.5) * Math.sqrt(count * probability * (1 - probability) + 0.1) * 2));
       churnTotals[segment.id] += churned / count;
       revenue += (count - churned) * segment.monthlySpend * (1 + applied);

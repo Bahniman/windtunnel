@@ -1,5 +1,6 @@
 @import "./riso-tokens.css";
 @import "./riso-suite.css";
+@import "./poster.css";
 @import "tailwindcss" source(none);
 @source "../src";
 @custom-variant dark (&:is(.dark *));
@@ -170,3 +171,4 @@ a { color: inherit; text-underline-offset: 3px; }
   .price-percentiles small { font-size:9px; }
   .price-percentiles strong { font-size:9px; }
 }
+.windtunnel-page .table { min-width:0 !important; } .windtunnel-page .table th,.windtunnel-page .table td { padding:11px 10px; } @media(max-width:520px){ .windtunnel-page .table .sub { display:none; } }

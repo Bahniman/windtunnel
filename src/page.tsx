@@ -2,234 +2,236 @@ import { PricingMonteCarlo } from "@/components/pricing-monte-carlo";
 import { PricingHeroSheet } from "@/components/pricing-hero-sheet";
 import { JargonDecoder } from "@/components/jargon-decoder";
 import { SuiteHeader } from "@/components/suite-header";
+import { SuiteNext } from "@/components/suite-next";
 
 export default function LandingPage() {
   return (
-    <div className="windtunnel-page">
+    <div className="windtunnel-page pk" style={{ ["--a" as string]: "var(--pink-display)", ["--b" as string]: "var(--blue)" }}>
 
       <SuiteHeader name="Windtunnel" sections={[
-        { label: "Case", href: "#problem" },
-        { label: "Sandbox", href: "#demo" },
-        { label: "Limits", href: "#limits" },
+        { label: "The case", href: "#problem" },
+        { label: "How it works", href: "#how" },
+        { label: "Try it", href: "#demo" },
+        { label: "Weak spots", href: "#limits" },
         { label: "Sources", href: "#sources" },
       ]} />
 
       <main id="main" className="suite-main">
 
-        {/* ------------------------------ opening ----------------------------- */}
-        <section className="shell section hero-grid">
-          <div>
-            <h1 className="display"><span className="headline-ink">Pricing</span> scenarios<span className="hero-accent">before launch.</span></h1>
-            <p className="lede">
-              A client-side sandbox for exploring how pricing assumptions change modeled outcomes.
+        {/* ------------------------------ the poster ------------------------------ */}
+        <section className="pk-wrap pk-hero">
+          <div className="pk-hero-copy">
+            <p className="pk-kick"><span className="n">04</span> Prototype · Pricing</p>
+            <h1 className="pk-big">
+              <span className="a">Test</span>
+              <span className="b">the wind.</span>
+              <span className="c">Rehearse a price change before your customers react to the real one.</span>
+            </h1>
+            <p className="pk-dek">
+              Windtunnel plays a price increase out <b>500 times</b> across three kinds of customer, then shows
+              who leaves, what revenue does, and how often the whole move <b>backfires</b>.
             </p>
-            <p className="hero-note">Illustrative cohorts only · no customer data, forecast, or launch recommendation.</p>
-            <div className="hero-cta">
-              <a href="#demo" className="suite-press inline-flex items-center gap-2 rounded bg-primary px-6 py-3 text-label-lg font-medium text-on-primary">
-                Run a simulation
-              </a>
-              <a href="#problem" className="suite-press inline-flex items-center gap-2 rounded border border-outline px-6 py-3 text-label-lg font-medium">
-                Read the argument
-              </a>
+            <div className="pk-cta">
+              <a href="#demo" className="pk-btn pri">Run the tunnel ↓</a>
+              <a href="#problem" className="pk-btn">The Unity story</a>
             </div>
           </div>
 
-          <PricingHeroSheet />
-        </section>
-
-        {/* ----------------------------- statement ---------------------------- */}
-        <section className="statement suite-reveal">
-          <div className="shell">
-            <p className="line">A pricing change is a business decision. A model can help make its assumptions visible.</p>
-            <p className="by">
-              Windtunnel uses a documented pricing-policy reversal as context. Its small model does not establish what would have predicted or prevented that outcome.
-            </p>
+          <div className="pk-board">
+            <span className="pk-sticker">500 runs<small>per click</small></span>
+            <PricingHeroSheet />
           </div>
         </section>
 
-        {/* ------------------------------ problem ----------------------------- */}
-        <section className="shell section band" id="problem">
-          <div className="section-head">
-            <span className="idx">Case</span>
-            <h2 className="h2">A pricing-policy change in public view</h2>
-            <p className="note">A dated policy change, followed by a published revision.</p>
+        <div className="pk-wrap">
+          <div className="pk-glance">
+            <dl className="pk-facts">
+              <div><dt>500</dt><dd>runs behind every number on this page</dd></div>
+              <div><dt>3</dt><dd>customer groups, each with its own price sensitivity</dd></div>
+              <div><dt>12 mo</dt><dd>from Unity's install fee to its full reversal <a className="lnk" href="#sources">[1]</a></dd></div>
+              <div><dt>+25%</dt><dd>the Enterprise price rise Unity chose instead <a className="lnk" href="#sources">[4]</a></dd></div>
+            </dl>
+            <ul className="pk-rows">
+              <li><span>What</span><b>A simulator for pricing decisions</b></li>
+              <li><span>Built</span><b>Monte Carlo model in Python, plus the sandbox on this page</b></li>
+              <li><span>For</span><b>Product and finance teams before a price change</b></li>
+              <li><span>Stage</span><b>Prototype, running on three sample customer groups</b></li>
+            </ul>
           </div>
+        </div>
 
-          <div className="table-wrap">
-            <table className="table">
-              <thead>
-                <tr><th>Unity Runtime Fee</th><th className="n">When</th><th className="n">Consequence</th></tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Per-install Runtime Fee announced<span className="sub">Developers would pay each time a game was installed past a threshold</span></td>
-                  <td className="n">Sep 2023</td>
-                  <td className="n">Public backlash</td>
-                </tr>
-                <tr>
-                  <td>Terms walked back after backlash<span className="sub">Studios publicly threatened to leave the engine</span></td>
-                  <td className="n">Sep 2023</td>
-                  <td className="n">Terms revised</td>
-                </tr>
-                <tr>
-                  <td>CEO John Riccitiello departs</td>
-                  <td className="n">Oct 2023</td>
-                  <td className="n">CEO departed</td>
-                </tr>
-                <tr>
-                  <td>Runtime Fee cancelled outright by the new CEO</td>
-                  <td className="n">Sep 2024</td>
-                  <td className="n">Reversed</td>
-                </tr>
-                <tr>
-                  <td><strong>Unity also announced subscription price changes</strong><span className="sub">Unity Pro +8%, Unity Enterprise +25%</span></td>
-                  <td className="n">Sep 2024</td>
-                  <td className="n"><strong>+8% / +25%</strong></td>
-                </tr>
-              </tbody>
-            </table>
+        {/* ------------------------------- the band ------------------------------- */}
+        <section className="pk-band">
+          <div className="pk-wrap">
+            <p className="pk-kick on-blue"><span className="n">The bet</span></p>
+            <p className="line">Unity changed one fee. <em>It took a year and a new CEO to undo it.</em></p>
+            <p className="by">Most pricing mistakes aren't bad arithmetic. They are a customer reaction nobody rehearsed.</p>
           </div>
-
-          <p className="prose" style={{ marginTop: "2rem" }}>
-            Unity later cancelled the Runtime Fee and announced subscription price changes. That
-            sequence is a useful case for discussing policy reversals; it does not show that this
-            illustrative model could have predicted the response or selected a better policy.
-          </p>
         </section>
 
-        {/* ----------------------------- mechanism ---------------------------- */}
-        <section className="shell section band">
-          <div className="section-head">
-            <span className="idx">3 parts</span>
-            <h2 className="h2">What the simulation actually does</h2>
-            <p className="note">A distribution of modeled outcomes, including downside runs.</p>
+        {/* -------------------------------- the case -------------------------------- */}
+        <section className="pk-wrap pk-sec" id="problem">
+          <div className="pk-head">
+            <p className="pk-kick"><span className="dot" /> The case</p>
+            <h2>One fee, <em>one bad year.</em></h2>
           </div>
-
-          <div className="rows">
-            <article className="row">
-              <span className="num">01</span>
-              <div><h3 className="title">Make the assumptions visible</h3><p className="role">Hand-set sample cohorts</p></div>
-              <div>
-                <p className="desc">
-                  The current demo does not ingest customer records. It uses three hand-set
-                  cohorts with explicit shares, sensitivity, satisfaction and monthly spend
-                  assumptions so visitors can see how changing those assumptions affects output.
+          <div className="pk-split">
+            <div className="table-wrap">
+              <table className="table">
+                <thead>
+                  <tr><th>Unity Runtime Fee</th><th className="n">When</th><th className="n">Result</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Per-install fee announced<span className="sub">Developers pay each time a game is installed past a threshold</span></td>
+                    <td className="n">Sep 2023</td>
+                    <td className="n">Backlash</td>
+                  </tr>
+                  <tr>
+                    <td>Terms walked back<span className="sub">Studios publicly threaten to leave the engine</span></td>
+                    <td className="n">Sep 2023</td>
+                    <td className="n">Revised</td>
+                  </tr>
+                  <tr>
+                    <td>CEO John Riccitiello departs</td>
+                    <td className="n">Oct 2023</td>
+                    <td className="n">Exit</td>
+                  </tr>
+                  <tr>
+                    <td>Fee cancelled by the new CEO</td>
+                    <td className="n">Sep 2024</td>
+                    <td className="n">Reversed</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Subscription prices raised instead</strong><span className="sub">Unity Pro +8%, Unity Enterprise +25%</span></td>
+                    <td className="n">Sep 2024</td>
+                    <td className="n"><strong>+8% / +25%</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <div className="pk-prose">
+                <p>
+                  Unity wanted more revenue from its biggest users. It got there in the end, through a plain
+                  subscription rise, but only after a year in which the first attempt cost it developer trust
+                  and its chief executive.
+                </p>
+                <p>
+                  No model predicts anger. What a model does is force the right argument <b>before</b> launch:
+                  which customers carry the increase, which ones leave, and in how many of the plausible futures
+                  the move loses money. Windtunnel is built to start that argument.
                 </p>
               </div>
-            </article>
-            <article className="row">
-              <span className="num">02</span>
-              <div><h3 className="title">Repeat the sampled scenario</h3><p className="role">500 seeded runs</p></div>
-              <div>
-                <p className="desc">
-                  Five hundred runs vary modeled churn assumptions within a bounded range. The
-                  median and 10th-to-90th percentile range describe this simulation only; they are
-                  not a confidence interval or forecast of a real business.
-                </p>
-              </div>
-            </article>
-            <article className="row">
-              <span className="num">03</span>
-              <div><h3 className="title">Inspect the trade-offs</h3><p className="role">No launch recommendation</p></div>
-              <div>
-                <p className="desc">
-                  The display compares modeled revenue change and churn under three simple
-                  strategies. It does not account for contract terms, competition, acquisition,
-                  costs or trust, and should not be used to make a real pricing decision.
-                </p>
-              </div>
-            </article>
+              <figure className="pk-quote" style={{ marginTop: 28 }}>
+                <p>The spreadsheet gives you one number. <em>The tunnel gives you the spread.</em></p>
+                <small>Why 500 runs, not one forecast</small>
+              </figure>
+            </div>
           </div>
         </section>
 
-        {/* ------------------------------- demo ------------------------------- */}
-        <section className="shell section band" id="demo">
-          <div className="section-head">
-            <span className="idx">Sandbox</span>
-            <h2 className="h2">Move the price. Watch the tail.</h2>
-            <p className="note">Illustrative subscription business · 500 deterministic runs · assumed cohorts, not company data.</p>
+        {/* ------------------------------- how it works ------------------------------- */}
+        <section className="pk-wrap pk-sec" id="how">
+          <div className="pk-head">
+            <p className="pk-kick"><span className="dot" /> How it works</p>
+            <h2>Three steps, <em>in the open.</em></h2>
           </div>
-          <PricingMonteCarlo />
-        </section>
-
-        {/* ---------------------------- the objection -------------------------- */}
-        <section className="shell section band" id="limits">
-          <div className="section-head">
-            <span className="idx">Honest</span>
-            <h2 className="h2">Where this is weakest</h2>
-            <p className="note">Questions to answer before evaluating this approach.</p>
-          </div>
-          <div className="prose" style={{ display: "grid", gap: "1.25rem" }}>
-            <p>
-              <strong>Outputs depend on the behavioral assumptions.</strong> Repeating a scenario
-              does not validate the modeled response. Read these results as sensitivity to stated
-              inputs, not as a prediction of revenue or a search for a break-even point.
-            </p>
-            <p>
-              <strong>The Unity dispute included factors outside this model.</strong> Public
-              discussion included retroactivity and trust concerns. This demo has no variables for
-              contract history, communications or sentiment, so its outputs do not describe those
-              factors or establish how an alternative policy would have performed.
-            </p>
-            <p>
-              <strong>A future calibrated version would depend on usable company data.</strong>
-              Data availability, governance and quality would need to be checked for each use case
-              before deciding whether a model can support it.
-            </p>
-          </div>
-        </section>
-
-        {/* ------------------------------ decoder ----------------------------- */}
-        <section className="shell section band">
-          <div className="section-head">
-            <span className="idx">Plain</span>
-            <h2 className="h2">The words, without the jargon</h2>
-            <p className="note">For anyone reading this who does not build software.</p>
-          </div>
-          <JargonDecoder />
-        </section>
-
-        {/* ------------------------------ sources ----------------------------- */}
-        <section className="shell section band" id="sources">
-          <div className="section-head">
-            <span className="idx">Checkable</span>
-            <h2 className="h2">Sources</h2>
-            <p className="note">The Unity timeline above, traceable.</p>
-          </div>
-          <ol className="src">
+          <ol className="pk-cards">
             <li>
-              Unity's September 2024 update cancelling the Runtime Fee and describing subscription
-              price changes. <a href="https://unity.com/blog/unity-is-canceling-the-runtime-fee" target="_blank" rel="noreferrer">Unity</a>
+              <p className="pk-kick"><span className="n">1</span> Name</p>
+              <h3>Split the customers</h3>
+              <p>Three groups with their own size, spend and sensitivity to price. Every assumption is on the screen, so anyone can challenge it.</p>
+              <span className="eg">Deal hunters 35% · ₹620 a month</span>
             </li>
             <li>
-              Unity cancels the Runtime Fee and moves to seat-based pricing, September 2024.{" "}
-              <a href="https://www.engadget.com/gaming/unity-dumps-the-runtime-fee-that-caused-a-developer-revolt-181559332.html" target="_blank" rel="noreferrer">Engadget</a>
+              <p className="pk-kick"><span className="n">2</span> Repeat</p>
+              <h3>Run it 500 times</h3>
+              <p>Each run draws a different market mood, from forgiving to hostile. Past a 20% rise, cancellations climb fast. Together the runs show a range instead of one confident guess.</p>
+              <span className="eg">Same inputs, same 500 runs, every time</span>
             </li>
             <li>
-              A year of fallout, including the departure of the CEO, summarised at the point of
-              reversal.{" "}
-              <a href="https://www.pcgamer.com/gaming-industry/a-year-after-outraging-developers-blowing-up-its-reputation-and-saying-goodbye-to-its-ceo-unity-decides-runtime-fees-are-a-bad-idea-so-its-getting-rid-of-them/" target="_blank" rel="noreferrer">PC Gamer</a>
-            </li>
-            <li>
-              Unity Pro up 8% and Unity Enterprise up 25% as the replacement for the fee.{" "}
-              <a href="https://www.cgchannel.com/2024/09/unity-scraps-controversial-runtime-fee-but-raises-prices/" target="_blank" rel="noreferrer">CG Channel</a>
+              <p className="pk-kick"><span className="n">3</span> Read</p>
+              <h3>Look at the tail</h3>
+              <p>The median tells you what usually happens. The bad end tells you whether you can survive it. Both sit side by side.</p>
+              <span className="eg">10th percentile · median · 90th percentile</span>
             </li>
           </ol>
         </section>
 
-        {/* ------------------------------- footer ----------------------------- */}
-        <footer className="shell section band">
-          <div>
-            <h2 className="h2" style={{ fontSize: "1.5rem" }}>Built by Bahniman Talukdar</h2>
-            <p className="prose" style={{ marginTop: "0.75rem", fontSize: "0.9375rem" }}>
-              One of four prototypes exploring the agent economy.
-            </p>
-            <p style={{ display: "flex", gap: "1.5rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
-              <a className="lnk" href="https://bahniman.github.io">Portfolio</a>
-              <a className="lnk" href="https://github.com/Bahniman/windtunnel" target="_blank" rel="noreferrer">Source</a>
-            </p>
+        {/* -------------------------------- the demo -------------------------------- */}
+        <section className="pk-wrap pk-sec" id="demo">
+          <div className="pk-head">
+            <p className="pk-kick"><span className="dot" /> Try it</p>
+            <h2>Move the price. <em>Watch the tail.</em></h2>
+            <p className="pk-lede">Pick an increase, a subscriber count and how the increase lands. The 500 runs redraw instantly.</p>
           </div>
-        </footer>
+          <div className="pk-stage">
+            <span className="pk-stage-tag">Live in your browser</span>
+            <PricingMonteCarlo />
+          </div>
+        </section>
+
+        {/* ------------------------------- weak spots ------------------------------- */}
+        <section className="pk-wrap pk-sec" id="limits">
+          <div className="pk-head">
+            <p className="pk-kick"><span className="dot" /> Where this is weakest</p>
+            <h2>What a CFO <em>would ask.</em></h2>
+          </div>
+          <ul className="pk-weak">
+            <li>
+              <p className="q">The customer behaviour is assumed.</p>
+              <p className="ans">It is, and 500 runs don't fix a wrong assumption. The value is in making the assumption visible enough to argue with, then replacing it with real churn data.</p>
+            </li>
+            <li>
+              <p className="q">Unity's problem was trust, not maths.</p>
+              <p className="ans">Agreed. Retroactive terms and poor communication drove that reaction, and no simulator measures them. Windtunnel covers the revenue side so the team can spend its energy on the rest.</p>
+            </li>
+            <li>
+              <p className="q">Where does the real data come from?</p>
+              <p className="ans">Billing history, cancellation reasons and reviews. The Python side already reads a reviews file; the next step is checking the model against past price changes.</p>
+            </li>
+          </ul>
+        </section>
+
+        {/* ---------------------------- decoder + sources ---------------------------- */}
+        <section className="pk-wrap pk-sec" id="sources">
+          <div className="pk-two">
+            <div>
+              <div className="pk-head">
+                <p className="pk-kick"><span className="dot" /> Plain English</p>
+                <h2>The <em>words.</em></h2>
+              </div>
+              <JargonDecoder />
+            </div>
+            <div>
+              <div className="pk-head">
+                <p className="pk-kick"><span className="dot" /> Checkable</p>
+                <h2><em>Sources.</em></h2>
+              </div>
+              <ol className="pk-src">
+                <li>
+                  Unity, September 2024: cancelling the Runtime Fee and changing subscription prices.{" "}
+                  <a href="https://unity.com/blog/unity-is-canceling-the-runtime-fee" target="_blank" rel="noreferrer">Unity</a>
+                </li>
+                <li>
+                  Unity drops the Runtime Fee and moves to seat-based pricing, September 2024.{" "}
+                  <a href="https://www.engadget.com/gaming/unity-dumps-the-runtime-fee-that-caused-a-developer-revolt-181559332.html" target="_blank" rel="noreferrer">Engadget</a>
+                </li>
+                <li>
+                  A year of fallout, including the CEO's departure, summarised at the reversal.{" "}
+                  <a href="https://www.pcgamer.com/gaming-industry/a-year-after-outraging-developers-blowing-up-its-reputation-and-saying-goodbye-to-its-ceo-unity-decides-runtime-fees-are-a-bad-idea-so-its-getting-rid-of-them/" target="_blank" rel="noreferrer">PC Gamer</a>
+                </li>
+                <li>
+                  Unity Pro up 8% and Unity Enterprise up 25% in place of the fee.{" "}
+                  <a href="https://www.cgchannel.com/2024/09/unity-scraps-controversial-runtime-fee-but-raises-prices/" target="_blank" rel="noreferrer">CG Channel</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <SuiteNext current="Windtunnel" />
       </main>
     </div>
   );

@@ -27,32 +27,32 @@ export function PricingMonteCarlo() {
   const format = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
 
   function reset() {
-    setPct(12); setCohortDraft("8500"); setCohortSize(8500); setStrategy("flat"); setResetMessage("Sandbox reset to its illustrative defaults.");
+    setPct(12); setCohortDraft("8500"); setCohortSize(8500); setStrategy("flat"); setResetMessage("Back to the starting scenario.");
   }
 
   return <div className="simulation-shell">
     <div className="simulation-top">
-      <div><h3>Pricing scenario sandbox</h3><p>Three assumed cohorts · 500 repeatable runs · no customer data.</p></div>
+      <div><h3>The tunnel</h3><p>Three customer groups · 500 runs every time you move something.</p></div>
       <button type="button" className="riso-button" onClick={reset}><RefreshCw size={14} aria-hidden="true" /> Reset inputs</button>
     </div>
     <p role="status" className="status-copy" aria-live="polite">{resetMessage}</p>
     <div className="simulation-grid">
       <div className="control-panel">
-        <span className="eyebrow">Scenario inputs</span>
+        <span className="eyebrow">Your move</span>
         <div>
           <label className="control-label" htmlFor="price-increase">Price increase: {pct}%</label>
           <input id="price-increase" className="range-control" type="range" min="5" max="40" value={pct} onChange={(event) => setPct(Number(event.target.value))} />
         </div>
         <div>
-          <label className="control-label" htmlFor="cohort-size">Assumed subscriber count</label>
+          <label className="control-label" htmlFor="cohort-size">Subscribers</label>
           <input id="cohort-size" className="field-number" type="number" min="1000" max="50000" step="500" value={cohortDraft}
             aria-invalid={invalid} aria-describedby="cohort-help cohort-error"
             onChange={(event) => { const draft = event.target.value; setCohortDraft(draft); const value = Number(draft); if (draft.trim() !== "" && Number.isInteger(value) && value >= 1000 && value <= 50000) setCohortSize(value); }} />
-          <p id="cohort-help" className="note">Valid range: 1,000–50,000. Outputs keep using the last valid count while editing an invalid value.</p>
+          <p id="cohort-help" className="note">Any whole number from 1,000 to 50,000.</p>
           <p id="cohort-error" className="field-error" role={invalid ? "alert" : undefined}>{invalid ? "Enter a whole number from 1,000 to 50,000." : ""}</p>
         </div>
         <fieldset className="choice-group">
-          <legend>Illustrative pricing pattern</legend>
+          <legend>How the increase lands</legend>
           {STRATEGIES.map((item) => <button key={item.id} type="button" className="strategy-option" aria-pressed={strategy === item.id} onClick={() => setStrategy(item.id)}>
             <span>{item.label}</span><small>{item.note}</small>
           </button>)}
@@ -61,7 +61,7 @@ export function PricingMonteCarlo() {
       <div>
         <div className="output-grid">
           <section className="metric-panel" aria-label="Simulated revenue change">
-            <span className="eyebrow">Modeled monthly revenue change</span>
+            <span className="eyebrow">Monthly revenue change</span>
             <div className="metric-list">
               <div className="metric-row"><span>10th percentile</span><strong>{format(result.p10)}</strong></div>
               <div className="metric-row"><span>Median</span><strong>{format(result.median)}</strong></div>
@@ -70,7 +70,7 @@ export function PricingMonteCarlo() {
             </div>
           </section>
           <section className="metric-panel" aria-label="Modeled churn by cohort">
-            <span className="eyebrow">Modeled churn by assumed cohort</span>
+            <span className="eyebrow">Who leaves, by group</span>
             <div className="segment-list">{SEGMENTS.map((segment) => <div className="segment-row" key={segment.id}>
               <span>{segment.name}</span><strong>{result.segmentChurn[segment.id]!.toFixed(1)}%</strong>
             </div>)}</div>
@@ -85,8 +85,8 @@ export function PricingMonteCarlo() {
           <div className="chart-ends"><span>Low {format(min)}</span><span>Median {format(result.median)}</span><span>High {format(max)}</span></div>
         </figure>
         <aside className="finding-panel">
-          <span className="eyebrow">What this run shows</span>
-          <p>{SEGMENTS[highestChurnIndex]!.name} has the highest modeled churn in this scenario ({result.segmentChurn[highestChurnIndex]!.toFixed(1)}%). {result.negativeRunPercent.toFixed(0)}% of runs fall below the modeled baseline. These are outputs of the stated assumptions, not a forecast or launch recommendation.</p>
+          <span className="eyebrow">The read</span>
+          <p>{SEGMENTS[highestChurnIndex]!.name} loses the most customers here ({result.segmentChurn[highestChurnIndex]!.toFixed(1)}%). {result.negativeRunPercent.toFixed(0)}% of runs end up earning less than before the increase. That number is the one to argue about before launch.</p>
         </aside>
       </div>
     </div>

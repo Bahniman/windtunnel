@@ -35,7 +35,7 @@ export function PricingHeroSheet() {
     <figure className="price-sheet" aria-labelledby="price-sheet-title">
       <figcaption className="price-sheet-head">
         <span id="price-sheet-title">Scenario sheet</span>
-        <span>{RUNS} seeded runs · sample</span>
+        
       </figcaption>
 
       <div className="price-sheet-inputs">
@@ -44,7 +44,7 @@ export function PricingHeroSheet() {
           <span>base price move</span>
         </div>
         <div className="price-sheet-count">
-          <span>Assumed subscriber count</span>
+          <span>Subscribers</span>
           <strong>{COHORT_SIZE.toLocaleString("en-IN")}</strong>
         </div>
       </div>
@@ -63,7 +63,7 @@ export function PricingHeroSheet() {
 
       <div className="price-sheet-cohorts" role="group" aria-label="Hand-set cohort assumptions">
         <div className="price-cohort-head">
-          <span>Assumed cohort mix</span>
+          <span>Customer groups</span>
           <span>Share</span>
           <span>Monthly spend</span>
         </div>
@@ -83,7 +83,7 @@ export function PricingHeroSheet() {
 
       <div className="price-sheet-distribution">
         <div className="price-distribution-head">
-          <strong>Modeled monthly revenue change</strong>
+          <strong>Monthly revenue change, 500 runs</strong>
           <span>{patterns.find((pattern) => pattern.id === strategy)?.label} · 500 runs</span>
         </div>
         <div
@@ -112,7 +112,7 @@ export function PricingHeroSheet() {
           <span><small>P90</small><strong>{formatPct(result.p90)}</strong></span>
         </div>
       </div>
-      <p className="price-sheet-note">Three hand-set cohorts · no customer data · not a forecast.</p>
+      <p className="price-sheet-note">Tap a pattern. The full tunnel is further down.</p>
     </figure>
   );
 }
